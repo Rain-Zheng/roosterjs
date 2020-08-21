@@ -59,7 +59,7 @@ describe('CorePastePlugin', () => {
 
     it('trigger paste event for html', () => {
         const items: ClipboardData = {
-            html: '',
+            rawHtml: '',
             text: '',
             image: null,
             types: [],
@@ -75,7 +75,7 @@ describe('CorePastePlugin', () => {
 
     it('trigger paste event for image', () => {
         const items: ClipboardData = {
-            html: '',
+            rawHtml: '',
             text: '',
             image: <any>{},
             types: [],
@@ -97,11 +97,12 @@ describe('CorePastePlugin', () => {
 
     it('trigger paste, simulate IE behavioar', () => {
         const items: ClipboardData = {
-            html: undefined,
+            rawHtml: undefined,
             text: '',
             image: <any>{},
             types: [],
         };
+        const expected = { ...items };
         spyOn(dom, 'extractClipboardEvent').and.callFake((event, callback) => {
             callback(items);
         });
@@ -111,8 +112,8 @@ describe('CorePastePlugin', () => {
 
         handler(<any>{});
         expect(paste).toHaveBeenCalledWith({
-            ...items,
-            html: 'test html',
+            ...expected,
+            rawHtml: 'test html',
             imageDataUri: 'dataurl',
         });
         expect(tempNode).not.toBeNull();
