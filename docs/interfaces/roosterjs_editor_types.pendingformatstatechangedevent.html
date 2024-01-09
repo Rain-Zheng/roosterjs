@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="../modules/roosterjs_editor_types.html">roosterjs-editor-types</a>
@@ -76,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="roosterjs_editor_types.basepluginevent.html" class="tsd-signature-type">BasePluginEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/roosterjs_editor_types.plugineventtype.html#pendingformatstatechanged" class="tsd-signature-type">PendingFormatStateChanged</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="roosterjs_editor_types.basepluginevent.html" class="tsd-signature-type" data-tsd-kind="Interface">BasePluginEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/roosterjs_editor_types.plugineventtype.html#pendingformatstatechanged" class="tsd-signature-type" data-tsd-kind="Enumeration member">PendingFormatStateChanged</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">PendingFormatStateChangedEvent</span>
@@ -94,6 +95,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="roosterjs_editor_types.pendingformatstatechangedevent.html#eventdatacache" class="tsd-kind-icon">event<wbr>Data<wbr>Cache</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="roosterjs_editor_types.pendingformatstatechangedevent.html#eventtype" class="tsd-kind-icon">event<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.pendingformatstatechangedevent.html#formatcallback" class="tsd-kind-icon">format<wbr>Callback</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.pendingformatstatechangedevent.html#formatstate" class="tsd-kind-icon">format<wbr>State</a></li>
 							</ul>
 						</section>
@@ -109,7 +111,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="roosterjs_editor_types.basepluginevent.html">BasePluginEvent</a>.<a href="roosterjs_editor_types.basepluginevent.html#eventdatacache">eventDataCache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts#L17">roosterjs-editor-types/lib/event/BasePluginEvent.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts#L18">packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -131,11 +133,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="eventtype" class="tsd-anchor"></a>
 					<h3>event<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">event<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/roosterjs_editor_types.plugineventtype.html#pendingformatstatechanged" class="tsd-signature-type">PendingFormatStateChanged</a></div>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/roosterjs_editor_types.plugineventtype.html#pendingformatstatechanged" class="tsd-signature-type" data-tsd-kind="Enumeration member">PendingFormatStateChanged</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="roosterjs_editor_types.basepluginevent.html">BasePluginEvent</a>.<a href="roosterjs_editor_types.basepluginevent.html#eventtype">eventType</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts#L10">roosterjs-editor-types/lib/event/BasePluginEvent.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts#L11">packages/roosterjs-editor-types/lib/event/BasePluginEvent.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -145,25 +147,84 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="formatstate" class="tsd-anchor"></a>
-					<h3>format<wbr>State</h3>
-					<div class="tsd-signature tsd-kind-icon">format<wbr>State<span class="tsd-signature-symbol">:</span> <a href="roosterjs_editor_types.pendableformatstate.html" class="tsd-signature-type">PendableFormatState</a></div>
+					<a name="formatcallback" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> format<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">format<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, isInnerNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts#L10">roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts#L19">packages/roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts:19</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, isInnerNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>A callback to do format change to a temp element. This is used for style-based format such as font and color</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+											</li>
+											<li>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> isInnerNode: <span class="tsd-signature-type">boolean</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="formatstate" class="tsd-anchor"></a>
+					<h3>format<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">format<wbr>State<span class="tsd-signature-symbol">:</span> <a href="roosterjs_editor_types.pendableformatstate.html" class="tsd-signature-type" data-tsd-kind="Interface">PendableFormatState</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts#L14">packages/roosterjs-editor-types/lib/event/PendingFormatStateChangedEvent.ts:14</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The new format state to apply. If null is passed, clear existing pending format state if any</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -181,7 +242,10 @@
 						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -197,6 +261,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="roosterjs_editor_types.pendingformatstatechangedevent.html#eventtype" class="tsd-kind-icon">event<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.pendingformatstatechangedevent.html#formatcallback" class="tsd-kind-icon">format<wbr>Callback</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.pendingformatstatechangedevent.html#formatstate" class="tsd-kind-icon">format<wbr>State</a>
@@ -215,7 +282,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -242,6 +308,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

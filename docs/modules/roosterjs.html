@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="roosterjs.html">roosterjs</a>
@@ -81,13 +82,13 @@
 					<a name="createeditor" class="tsd-anchor"></a>
 					<h3>create<wbr>Editor</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Editor<span class="tsd-signature-symbol">(</span>contentDiv<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span>, additionalPlugins<span class="tsd-signature-symbol">?: </span><a href="../interfaces/roosterjs_editor_core.editorplugin.html" class="tsd-signature-type">EditorPlugin</a><span class="tsd-signature-symbol">[]</span>, initialContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/roosterjs_editor_core.editor.html" class="tsd-signature-type">Editor</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Editor<span class="tsd-signature-symbol">(</span>contentDiv<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDivElement</span>, additionalPlugins<span class="tsd-signature-symbol">?: </span><a href="../interfaces/roosterjs_editor_types.editorplugin.html" class="tsd-signature-type" data-tsd-kind="Interface">EditorPlugin</a><span class="tsd-signature-symbol">[]</span>, initialContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.ieditor.html" class="tsd-signature-type" data-tsd-kind="Interface">IEditor</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs/lib/createEditor.ts#L12">roosterjs/lib/createEditor.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs/lib/createEditor.ts#L14">packages/roosterjs/lib/createEditor.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -104,10 +105,10 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> additionalPlugins: <a href="../interfaces/roosterjs_editor_core.editorplugin.html" class="tsd-signature-type">EditorPlugin</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> additionalPlugins: <a href="../interfaces/roosterjs_editor_types.editorplugin.html" class="tsd-signature-type" data-tsd-kind="Interface">EditorPlugin</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The additional user defined plugins. Currently the default plugins that are already included are
-										DefalutShortcut, HyperLink, Paste, and ContentEdit, user don&#39;t need to add those.</p>
+										ContentEdit, HyperLink and Paste, user don&#39;t need to add those.</p>
 									</div>
 								</li>
 								<li>
@@ -117,7 +118,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/roosterjs_editor_core.editor.html" class="tsd-signature-type">Editor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.ieditor.html" class="tsd-signature-type" data-tsd-kind="Interface">IEditor</a></h4>
 							<p>The editor instance</p>
 						</li>
 					</ul>
@@ -127,11 +128,26 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -149,7 +165,10 @@
 						<a href="roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -168,7 +187,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -194,6 +212,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

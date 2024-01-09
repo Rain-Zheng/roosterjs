@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="../modules/roosterjs_editor_dom.html">roosterjs-editor-dom</a>
@@ -70,7 +71,7 @@
 					<div class="lead">
 						<p>The provides traversing of content inside editor.
 							There are two ways to traverse, block by block, or inline element by inline element
-							Block and inline traversing is independent from each other, meanning if you traverse block by block, it does not change
+							Block and inline traversing is independent from each other, meaning if you traverse block by block, it does not change
 						the current inline element position</p>
 					</div>
 				</div>
@@ -81,6 +82,12 @@
 					<li>
 						<span class="target">ContentTraverser</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -115,13 +122,14 @@
 					<a name="currentblockelement" class="tsd-anchor"></a>
 					<h3>current<wbr>Block<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> currentBlockElement<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> currentBlockElement<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#currentblockelement">currentBlockElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L78">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L85">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -129,7 +137,7 @@
 									<p>Get current block</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -137,13 +145,14 @@
 					<a name="currentinlineelement" class="tsd-anchor"></a>
 					<h3>current<wbr>Inline<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> currentInlineElement<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> currentInlineElement<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#currentinlineelement">currentInlineElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L136">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L143">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,7 +160,7 @@
 									<p>Current inline element getter</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -162,13 +171,14 @@
 					<a name="getnextblockelement" class="tsd-anchor"></a>
 					<h3>get<wbr>Next<wbr>Block<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Next<wbr>Block<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Next<wbr>Block<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#getnextblockelement">getNextBlockElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L90">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L97">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,7 +186,7 @@
 									<p>Get next block element</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -184,13 +194,14 @@
 					<a name="getnextinlineelement" class="tsd-anchor"></a>
 					<h3>get<wbr>Next<wbr>Inline<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Next<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Next<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#getnextinlineelement">getNextInlineElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L148">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L155">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +209,7 @@
 									<p>Get next inline element</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -206,13 +217,14 @@
 					<a name="getpreviousblockelement" class="tsd-anchor"></a>
 					<h3>get<wbr>Previous<wbr>Block<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Previous<wbr>Block<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Previous<wbr>Block<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#getpreviousblockelement">getPreviousBlockElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L97">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L104">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,7 +232,7 @@
 									<p>Get previous block element</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type">BlockElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.blockelement.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -228,13 +240,14 @@
 					<a name="getpreviousinlineelement" class="tsd-anchor"></a>
 					<h3>get<wbr>Previous<wbr>Inline<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Previous<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Previous<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html">IContentTraverser</a>.<a href="../interfaces/roosterjs_editor_types.icontenttraverser.html#getpreviousinlineelement">getPreviousInlineElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L155">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L162">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +255,7 @@
 									<p>Get previous inline element</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -250,13 +263,13 @@
 					<a name="createblocktraverser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Block<wbr>Traverser</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Block<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, position<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type">NodePosition</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Range</span>, start<span class="tsd-signature-symbol">?: </span><a href="../enums/roosterjs_editor_types.contentposition.html" class="tsd-signature-type">ContentPosition</a>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Block<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type" data-tsd-kind="Interface">NodePosition</a>, start<span class="tsd-signature-symbol">?: </span><a href="../enums/roosterjs_editor_types.contentposition.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ContentPosition</a><span class="tsd-signature-symbol"> | </span><a href="../enums/roosterjs_editor_types_compatible.compatiblecontentposition.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CompatibleContentPosition</a>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L66">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L73">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,14 +286,14 @@
 									</div>
 								</li>
 								<li>
-									<h5>position: <a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type">NodePosition</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Range</span></h5>
+									<h5>position: <span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type" data-tsd-kind="Interface">NodePosition</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>A position inside a block, traversing will be scoped within this block.
 										If passing a range, the start position of this range will be used</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> start: <a href="../enums/roosterjs_editor_types.contentposition.html" class="tsd-signature-type">ContentPosition</a><span class="tsd-signature-symbol"> = ContentPosition.SelectionStart</span></h5>
+									<h5>start: <a href="../enums/roosterjs_editor_types.contentposition.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ContentPosition</a><span class="tsd-signature-symbol"> | </span><a href="../enums/roosterjs_editor_types_compatible.compatiblecontentposition.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CompatibleContentPosition</a><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> skipTags: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -289,7 +302,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -297,13 +310,13 @@
 					<a name="createbodytraverser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Body<wbr>Traverser</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Body<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, startNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Body<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, startNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L36">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L43">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +345,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -340,13 +353,13 @@
 					<a name="createselectiontraverser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Selection<wbr>Traverser</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Selection<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, range<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Selection<wbr>Traverser<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, range<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span>, skipTags<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L50">roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts#L57">packages/roosterjs-editor-dom/lib/contentTraverser/ContentTraverser.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -375,7 +388,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="roosterjs_editor_dom.contenttraverser.html" class="tsd-signature-type">ContentTraverser</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.icontenttraverser.html" class="tsd-signature-type" data-tsd-kind="Interface">IContentTraverser</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -384,11 +397,26 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -406,7 +434,10 @@
 						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -458,7 +489,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -488,6 +518,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="../modules/roosterjs_editor_types.html">roosterjs-editor-types</a>
@@ -79,7 +80,7 @@
 						<span class="target">ElementBasedFormatState</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="roosterjs_editor_types.formatstate.html" class="tsd-signature-type">FormatState</a>
+								<a href="roosterjs_editor_types.formatstate.html" class="tsd-signature-type" data-tsd-kind="Interface">FormatState</a>
 							</li>
 						</ul>
 					</li>
@@ -93,11 +94,19 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#canaddimagealttext" class="tsd-kind-icon">can<wbr>Add<wbr>Image<wbr>Alt<wbr>Text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#canmergetablecell" class="tsd-kind-icon">can<wbr>Merge<wbr>Table<wbr>Cell</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#canunlink" class="tsd-kind-icon">can<wbr>Unlink</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#headerlevel" class="tsd-kind-icon">header<wbr>Level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#headinglevel" class="tsd-kind-icon">heading<wbr>Level</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#isblockquote" class="tsd-kind-icon">is<wbr>Block<wbr>Quote</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#isbullet" class="tsd-kind-icon">is<wbr>Bullet</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#iscodeblock" class="tsd-kind-icon">is<wbr>Code<wbr>Block</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#iscodeinline" class="tsd-kind-icon">is<wbr>Code<wbr>Inline</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#isintable" class="tsd-kind-icon">is<wbr>InTable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#ismultilineselection" class="tsd-kind-icon">is<wbr>Multiline<wbr>Selection</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#isnumbering" class="tsd-kind-icon">is<wbr>Numbering</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#tableformat" class="tsd-kind-icon">table<wbr>Format</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.elementbasedformatstate.html#tablehasheader" class="tsd-kind-icon">table<wbr>Has<wbr>Header</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">can<wbr>Add<wbr>Image<wbr>Alt<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L69">roosterjs-editor-types/lib/interface/FormatState.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L85">packages/roosterjs-editor-types/lib/interface/FormatState.ts:85</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -121,12 +130,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="canmergetablecell" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> can<wbr>Merge<wbr>Table<wbr>Cell</h3>
+					<div class="tsd-signature tsd-kind-icon">can<wbr>Merge<wbr>Table<wbr>Cell<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L116">packages/roosterjs-editor-types/lib/interface/FormatState.ts:116</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether we can execute table cell merge operation</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="canunlink" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> can<wbr>Unlink</h3>
 					<div class="tsd-signature tsd-kind-icon">can<wbr>Unlink<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L64">roosterjs-editor-types/lib/interface/FormatState.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L75">packages/roosterjs-editor-types/lib/interface/FormatState.ts:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,12 +165,30 @@
 					<div class="tsd-signature tsd-kind-icon">header<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L74">roosterjs-editor-types/lib/interface/FormatState.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L96">packages/roosterjs-editor-types/lib/interface/FormatState.ts:96</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>deprecated</dt>
+							<dd><p>Use headingLevel instead
+								Heading level (0-6, 0 means no heading)</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="headinglevel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> heading<wbr>Level</h3>
+					<div class="tsd-signature tsd-kind-icon">heading<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L90">packages/roosterjs-editor-types/lib/interface/FormatState.ts:90</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Header level (0-6, 0 means no header)</p>
+							<p>Heading level (0-6, 0 means no heading)</p>
 						</div>
 					</div>
 				</section>
@@ -156,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Block<wbr>Quote<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L59">roosterjs-editor-types/lib/interface/FormatState.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L60">packages/roosterjs-editor-types/lib/interface/FormatState.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Bullet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L49">roosterjs-editor-types/lib/interface/FormatState.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L50">packages/roosterjs-editor-types/lib/interface/FormatState.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -181,12 +223,72 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iscodeblock" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Code<wbr>Block</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Code<wbr>Block<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L70">packages/roosterjs-editor-types/lib/interface/FormatState.ts:70</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the text is in Code block</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iscodeinline" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Code<wbr>Inline</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Code<wbr>Inline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L65">packages/roosterjs-editor-types/lib/interface/FormatState.ts:65</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the text is in Code element</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isintable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>InTable</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>InTable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L101">packages/roosterjs-editor-types/lib/interface/FormatState.ts:101</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the cursor is in table</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ismultilineselection" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Multiline<wbr>Selection</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Multiline<wbr>Selection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L80">packages/roosterjs-editor-types/lib/interface/FormatState.ts:80</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the selected text is multiline</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="isnumbering" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Numbering</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Numbering<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L54">roosterjs-editor-types/lib/interface/FormatState.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L55">packages/roosterjs-editor-types/lib/interface/FormatState.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -195,16 +297,61 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="tableformat" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> table<wbr>Format</h3>
+					<div class="tsd-signature tsd-kind-icon">table<wbr>Format<span class="tsd-signature-symbol">:</span> <a href="roosterjs_editor_types.tableformat.html" class="tsd-signature-type" data-tsd-kind="Interface">TableFormat</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L106">packages/roosterjs-editor-types/lib/interface/FormatState.ts:106</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Format of table, if there is table at cursor position</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="tablehasheader" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> table<wbr>Has<wbr>Header</h3>
+					<div class="tsd-signature tsd-kind-icon">table<wbr>Has<wbr>Header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/FormatState.ts#L111">packages/roosterjs-editor-types/lib/interface/FormatState.ts:111</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If there is a table, whether the table has header row</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -222,7 +369,10 @@
 						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -237,10 +387,16 @@
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#canaddimagealttext" class="tsd-kind-icon">can<wbr>Add<wbr>Image<wbr>Alt<wbr>Text</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#canmergetablecell" class="tsd-kind-icon">can<wbr>Merge<wbr>Table<wbr>Cell</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#canunlink" class="tsd-kind-icon">can<wbr>Unlink</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#headerlevel" class="tsd-kind-icon">header<wbr>Level</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#headinglevel" class="tsd-kind-icon">heading<wbr>Level</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#isblockquote" class="tsd-kind-icon">is<wbr>Block<wbr>Quote</a>
@@ -249,7 +405,25 @@
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#isbullet" class="tsd-kind-icon">is<wbr>Bullet</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#iscodeblock" class="tsd-kind-icon">is<wbr>Code<wbr>Block</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#iscodeinline" class="tsd-kind-icon">is<wbr>Code<wbr>Inline</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#isintable" class="tsd-kind-icon">is<wbr>InTable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#ismultilineselection" class="tsd-kind-icon">is<wbr>Multiline<wbr>Selection</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.elementbasedformatstate.html#isnumbering" class="tsd-kind-icon">is<wbr>Numbering</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#tableformat" class="tsd-kind-icon">table<wbr>Format</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.elementbasedformatstate.html#tablehasheader" class="tsd-kind-icon">table<wbr>Has<wbr>Header</a>
 							</li>
 						</ul>
 					</li>
@@ -265,7 +439,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -292,6 +465,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

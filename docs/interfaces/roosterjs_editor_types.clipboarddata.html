@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="../modules/roosterjs_editor_types.html">roosterjs-editor-types</a>
@@ -87,10 +88,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#customvalues" class="tsd-kind-icon">custom<wbr>Values</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#files" class="tsd-kind-icon">files</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#html" class="tsd-kind-icon">html</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#htmlfirstlevelchildtags" class="tsd-kind-icon">html<wbr>First<wbr>Level<wbr>Child<wbr>Tags</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#image" class="tsd-kind-icon">image</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#imagedatauri" class="tsd-kind-icon">image<wbr>Data<wbr>Uri</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#originalformat" class="tsd-kind-icon">original<wbr>Format</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#linkpreview" class="tsd-kind-icon">link<wbr>Preview</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#pastenativeevent" class="tsd-kind-icon">paste<wbr>Native<wbr>Event</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#rawhtml" class="tsd-kind-icon">raw<wbr>Html</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#snapshotbeforepaste" class="tsd-kind-icon">snapshot<wbr>Before<wbr>Paste</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roosterjs_editor_types.clipboarddata.html#text" class="tsd-kind-icon">text</a></li>
@@ -103,20 +108,64 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="html" class="tsd-anchor"></a>
-					<h3>html</h3>
-					<div class="tsd-signature tsd-kind-icon">html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="customvalues" class="tsd-anchor"></a>
+					<h3>custom<wbr>Values</h3>
+					<div class="tsd-signature tsd-kind-icon">custom<wbr>Values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L41">roosterjs-editor-types/lib/interface/ClipboardData.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L63">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>deprecated</dt>
-							<dd><p>If the copied data contains HTML format, this will be the sanitized html string. Otherwise it is null.</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>Value of custom paste type. By default it is always empty.
+							To allow custom paste type, pass the allowed types to EditorOptions.allowedCustomPasteType</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="files" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> files</h3>
+					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">File</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L37">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>General file from clipboard event</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="html" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> html</h3>
+					<div class="tsd-signature tsd-kind-icon">html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L42">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:42</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Html extracted from raw html string and remove content before and after fragment tag</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="htmlfirstlevelchildtags" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> html<wbr>First<wbr>Level<wbr>Child<wbr>Tags</h3>
+					<div class="tsd-signature tsd-kind-icon">html<wbr>First<wbr>Level<wbr>Child<wbr>Tags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L57">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:57</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of tag names of the first level child nodes</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -125,22 +174,22 @@
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">File</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L25">roosterjs-editor-types/lib/interface/ClipboardData.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L32">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If the copied data contains image format, this will be the image blob. Otherwise it is null.</p>
+							<p>Image file from clipboard event</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="imagedatauri" class="tsd-anchor"></a>
-					<h3>image<wbr>Data<wbr>Uri</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> image<wbr>Data<wbr>Uri</h3>
 					<div class="tsd-signature tsd-kind-icon">image<wbr>Data<wbr>Uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L30">roosterjs-editor-types/lib/interface/ClipboardData.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L52">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -150,17 +199,32 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="originalformat" class="tsd-anchor"></a>
-					<h3>original<wbr>Format</h3>
-					<div class="tsd-signature tsd-kind-icon">original<wbr>Format<span class="tsd-signature-symbol">:</span> <a href="roosterjs_editor_types.defaultformat.html" class="tsd-signature-type">DefaultFormat</a></div>
+					<a name="linkpreview" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> link<wbr>Preview</h3>
+					<div class="tsd-signature tsd-kind-icon">link<wbr>Preview<span class="tsd-signature-symbol">:</span> <a href="roosterjs_editor_types.edgelinkpreview.html" class="tsd-signature-type" data-tsd-kind="Interface">EdgeLinkPreview</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L15">roosterjs-editor-types/lib/interface/ClipboardData.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L27">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The format state at cursor before pasting. This is used for changing paste format</p>
+							<p>Link Preview information provided by Edge</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pastenativeevent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> paste<wbr>Native<wbr>Event</h3>
+					<div class="tsd-signature tsd-kind-icon">paste<wbr>Native<wbr>Event<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L68">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:68</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If true, the event was triggered by a native paste event (keyboard or native context menu paste)</p>
 						</div>
 					</div>
 				</section>
@@ -170,22 +234,24 @@
 					<div class="tsd-signature tsd-kind-icon">raw<wbr>Html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L46">roosterjs-editor-types/lib/interface/ClipboardData.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L22">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If the copied data contains HTML format, this will be the original html string without any processing. Otherwise it is null.</p>
+							<p>HTML string from clipboard event.
+								When set to null, it means there&#39;s no HTML from clipboard event.
+							When set to undefined, it means there may be HTML in clipboard event, but fail to retrieve</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="snapshotbeforepaste" class="tsd-anchor"></a>
-					<h3>snapshot<wbr>Before<wbr>Paste</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> snapshot<wbr>Before<wbr>Paste</h3>
 					<div class="tsd-signature tsd-kind-icon">snapshot<wbr>Before<wbr>Paste<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L10">roosterjs-editor-types/lib/interface/ClipboardData.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L47">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:47</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -200,12 +266,12 @@
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L35">roosterjs-editor-types/lib/interface/ClipboardData.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L15">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If the copied data contains plain text format, this will be the plain text string. Otherwise it is null.</p>
+							<p>Plain text from clipboard event</p>
 						</div>
 					</div>
 				</section>
@@ -215,12 +281,12 @@
 					<div class="tsd-signature tsd-kind-icon">types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L20">roosterjs-editor-types/lib/interface/ClipboardData.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-types/lib/interface/ClipboardData.ts#L10">packages/roosterjs-editor-types/lib/interface/ClipboardData.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Types of content included by the original onpaste event</p>
+							<p>Available types from clipboard event</p>
 						</div>
 					</div>
 				</section>
@@ -229,11 +295,26 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -251,7 +332,10 @@
 						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -263,7 +347,16 @@
 						<a href="roosterjs_editor_types.clipboarddata.html" class="tsd-kind-icon">Clipboard<wbr>Data</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.clipboarddata.html#customvalues" class="tsd-kind-icon">custom<wbr>Values</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.clipboarddata.html#files" class="tsd-kind-icon">files</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.clipboarddata.html#html" class="tsd-kind-icon">html</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.clipboarddata.html#htmlfirstlevelchildtags" class="tsd-kind-icon">html<wbr>First<wbr>Level<wbr>Child<wbr>Tags</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.clipboarddata.html#image" class="tsd-kind-icon">image</a>
@@ -272,7 +365,10 @@
 								<a href="roosterjs_editor_types.clipboarddata.html#imagedatauri" class="tsd-kind-icon">image<wbr>Data<wbr>Uri</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="roosterjs_editor_types.clipboarddata.html#originalformat" class="tsd-kind-icon">original<wbr>Format</a>
+								<a href="roosterjs_editor_types.clipboarddata.html#linkpreview" class="tsd-kind-icon">link<wbr>Preview</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roosterjs_editor_types.clipboarddata.html#pastenativeevent" class="tsd-kind-icon">paste<wbr>Native<wbr>Event</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="roosterjs_editor_types.clipboarddata.html#rawhtml" class="tsd-kind-icon">raw<wbr>Html</a>
@@ -300,7 +396,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -327,6 +422,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

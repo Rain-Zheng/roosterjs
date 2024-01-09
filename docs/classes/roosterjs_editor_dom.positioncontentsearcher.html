@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for RoosterJs API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">RoosterJs API Reference</a>
 				</li>
 				<li>
 					<a href="../modules/roosterjs_editor_dom.html">roosterjs-editor-dom</a>
@@ -78,6 +79,12 @@
 					<li>
 						<span class="target">PositionContentSearcher</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html" class="tsd-signature-type" data-tsd-kind="Interface">IPositionContentSearcher</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -111,13 +118,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Position<wbr>Content<wbr>Searcher<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, position<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type">NodePosition</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_editor_dom.positioncontentsearcher.html" class="tsd-signature-type">PositionContentSearcher</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Position<wbr>Content<wbr>Searcher<span class="tsd-signature-symbol">(</span>rootNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, position<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type" data-tsd-kind="Interface">NodePosition</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_editor_dom.positioncontentsearcher.html" class="tsd-signature-type" data-tsd-kind="Class">PositionContentSearcher</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L38">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L43">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -130,21 +137,17 @@
 								<li>
 									<h5>rootNode: <span class="tsd-signature-type">Node</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Root node of the whole scope</p>
-										</div>
+										<p>Root node of the whole scope</p>
 									</div>
 								</li>
 								<li>
-									<h5>position: <a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type">NodePosition</a></h5>
+									<h5>position: <a href="../interfaces/roosterjs_editor_types.nodeposition.html" class="tsd-signature-type" data-tsd-kind="Interface">NodePosition</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Start position</p>
-										</div>
+										<p>Start position</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="roosterjs_editor_dom.positioncontentsearcher.html" class="tsd-signature-type">PositionContentSearcher</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="roosterjs_editor_dom.positioncontentsearcher.html" class="tsd-signature-type" data-tsd-kind="Class">PositionContentSearcher</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -155,13 +158,14 @@
 					<a name="foreachtextinlineelement" class="tsd-anchor"></a>
 					<h3>for<wbr>Each<wbr>Text<wbr>Inline<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<wbr>Text<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<wbr>Text<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#foreachtextinlineelement">forEachTextInlineElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L155">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L160">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,18 +180,18 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>textInlineElement<span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>textInlineElement: <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h5>
+															<h5>textInlineElement: <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -205,13 +209,14 @@
 					<a name="getinlineelementafter" class="tsd-anchor"></a>
 					<h3>get<wbr>Inline<wbr>Element<wbr>After</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Inline<wbr>Element<wbr>After<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Inline<wbr>Element<wbr>After<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getinlineelementafter">getInlineElementAfter</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L76">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L81">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -219,7 +224,7 @@
 									<p>Get the inline element after position</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
 							<p>The inline element after position</p>
 						</li>
 					</ul>
@@ -228,13 +233,14 @@
 					<a name="getinlineelementbefore" class="tsd-anchor"></a>
 					<h3>get<wbr>Inline<wbr>Element<wbr>Before</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Inline<wbr>Element<wbr>Before<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Inline<wbr>Element<wbr>Before<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getinlineelementbefore">getInlineElementBefore</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L64">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L69">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +248,7 @@
 									<p>Get the inline element before position</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
 							<p>The inlineElement before position</p>
 						</li>
 					</ul>
@@ -251,13 +257,14 @@
 					<a name="getnearestnontextinlineelement" class="tsd-anchor"></a>
 					<h3>get<wbr>Nearest<wbr>Non<wbr>Text<wbr>Inline<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Nearest<wbr>Non<wbr>Text<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Nearest<wbr>Non<wbr>Text<wbr>Inline<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getnearestnontextinlineelement">getNearestNonTextInlineElement</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L168">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L173">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,8 +272,8 @@
 									<p>Get first non textual inline element before position</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type">InlineElement</a></h4>
-							<p>First non textutal inline element before position or null if no such element exists</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/roosterjs_editor_types.inlineelement.html" class="tsd-signature-type" data-tsd-kind="Interface">InlineElement</a></h4>
+							<p>First non textual inline element before position or null if no such element exists</p>
 						</li>
 					</ul>
 				</section>
@@ -279,8 +286,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getrangefromtext">getRangeFromText</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L109">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L114">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -317,8 +325,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getsubstringbefore">getSubStringBefore</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L95">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L100">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -333,7 +342,7 @@
 									<h5>length: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The length of string user want to get, the string always ends at the position,
-										so this length determins the start position of the string</p>
+										so this length determines the start position of the string</p>
 									</div>
 								</li>
 							</ul>
@@ -352,8 +361,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html">IPositionContentSearcher</a>.<a href="../interfaces/roosterjs_editor_types.ipositioncontentsearcher.html#getwordbefore">getWordBefore</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/roosterjs/blob/11ab09f/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L52">roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/c8698eb/packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts#L57">packages/roosterjs-editor-dom/lib/contentTraverser/PositionContentSearcher.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,11 +382,26 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs.html">roosterjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_color_utils.html">roosterjs-<wbr>color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model.html">roosterjs-<wbr>content-<wbr>model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_dom.html">roosterjs-<wbr>content-<wbr>model-<wbr>dom</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_editor.html">roosterjs-<wbr>content-<wbr>model-<wbr>editor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_content_model_types.html">roosterjs-<wbr>content-<wbr>model-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
@@ -394,7 +419,10 @@
 						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_html_sanitizer.html">roosterjs-<wbr>html-<wbr>sanitizer</a>
+						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
 					</li>
 				</ul>
 			</nav>
@@ -443,7 +471,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
@@ -471,6 +498,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
