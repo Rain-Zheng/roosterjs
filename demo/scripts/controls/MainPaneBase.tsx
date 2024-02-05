@@ -35,7 +35,8 @@ export default abstract class MainPaneBase<T extends MainPaneBaseState> extends 
 
     protected sidePane = React.createRef<SidePane>();
     protected updateContentPlugin: UpdateContentPlugin;
-    protected content: string = '';
+    protected content: string =
+        '<div id="test" style="background:white">Hello, world</div><div style="background:white">Hello, world</div>';
     protected themeMatch = window.matchMedia?.('(prefers-color-scheme: dark)');
 
     static getInstance() {

@@ -29,7 +29,11 @@ import { clearFormatButton } from './ribbonButtons/contentModel/clearFormatButto
 import { codeButton } from './ribbonButtons/contentModel/codeButton';
 import { ContentModelRibbon } from './ribbonButtons/contentModel/ContentModelRibbon';
 import { ContentModelRibbonPlugin } from './ribbonButtons/contentModel/ContentModelRibbonPlugin';
-import { ContentModelSegmentFormat, Snapshots } from 'roosterjs-content-model-types';
+import {
+    ContentModelSegmentFormat,
+    ElementProcessor,
+    Snapshots,
+} from 'roosterjs-content-model-types';
 import { createEmojiPlugin, createPasteOptionPlugin } from 'roosterjs-react';
 import { darkMode } from './ribbonButtons/contentModel/darkMode';
 import { decreaseFontSizeButton } from './ribbonButtons/contentModel/decreaseFontSizeButton';
@@ -274,7 +278,7 @@ class ContentModelEditorMainPane extends MainPaneBase<ContentModelMainPaneState>
             popoutWindow: null,
             initState: this.editorOptionPlugin.getBuildInPluginState(),
             scale: 1,
-            isDarkMode: this.themeMatch?.matches || false,
+            isDarkMode: true,
             editorCreator: null,
             isRtl: false,
             tableBorderFormat: {
@@ -372,6 +376,18 @@ class ContentModelEditorMainPane extends MainPaneBase<ContentModelMainPaneState>
                 format.backgroundColors?.lightModeColor || format.backgroundColor || undefined,
         };
 
+        const divProcessor: ElementProcessor<HTMLDivElement> = (group, element, context) => {
+            const processor = element.id
+                ? context.elementProcessors['*']
+                : context.defaultElementProcessors.div;
+            processor?.(group, element, context);
+        };
+        let defaultDomToModelOptions = {
+            processorOverride: {
+                div: divProcessor,
+            },
+        };
+
         this.updateContentPlugin.forceUpdate();
 
         return (
@@ -391,6 +407,7 @@ class ContentModelEditorMainPane extends MainPaneBase<ContentModelMainPaneState>
                                 this.contentModelPanePlugin.getInnerRibbonPlugin(),
                             ]}
                             defaultSegmentFormat={defaultFormat}
+                            defaultDomToModelOptions={defaultDomToModelOptions}
                             inDarkMode={this.state.isDarkMode}
                             getDarkColor={getDarkColor}
                             experimentalFeatures={this.state.initState.experimentalFeatures}
