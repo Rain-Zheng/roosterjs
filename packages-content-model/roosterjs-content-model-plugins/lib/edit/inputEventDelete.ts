@@ -1,11 +1,9 @@
-import { ChangeSource, deleteSelection, isModifierKey } from 'roosterjs-content-model-core';
+import { ChangeSource, deleteSelection } from 'roosterjs-content-model-core';
 import { deleteAllSegmentBefore } from './deleteSteps/deleteAllSegmentBefore';
 import { deleteList } from './deleteSteps/deleteList';
 import { isNodeOfType } from 'roosterjs-content-model-dom';
 import {
     handleKeyboardEventResult,
-    isDeleteAfter,
-    isDeleteBefore,
     shouldDeleteAllSegmentsBefore,
     shouldDeleteWord,
 } from './handleKeyboardEventCommon';
@@ -25,11 +23,11 @@ import type {
 
 /**
  * @internal
- * Do keyboard event handling for DELETE/BACKSPACE key
+ * Do input event handling for deleteContent, deleteWord and deleteSoftLine types
  * @param editor The Content Model Editor
- * @param rawEvent DOM keyboard event
+ * @param rawEvent DOM input event
  */
-export function keyboardDelete(editor: IStandaloneEditor, rawEvent: KeyboardEvent | InputEvent) {
+export function inputEventDelete(editor: IStandaloneEditor, rawEvent: InputEvent) {
     const selection = editor.getDOMSelection();
 
     if (shouldDeleteWithContentModel(selection, rawEvent)) {
@@ -46,8 +44,7 @@ export function keyboardDelete(editor: IStandaloneEditor, rawEvent: KeyboardEven
             {
                 rawEvent,
                 changeSource: ChangeSource.Keyboard,
-                getChangeData: () =>
-                    rawEvent instanceof KeyboardEvent ? rawEvent.which : rawEvent.inputType,
+                getChangeData: () => rawEvent.inputType,
                 apiName: isDeleteAfter(rawEvent) ? 'handleDeleteKey' : 'handleBackspaceKey',
             }
         );
@@ -56,10 +53,7 @@ export function keyboardDelete(editor: IStandaloneEditor, rawEvent: KeyboardEven
     }
 }
 
-function getDeleteSteps(
-    rawEvent: KeyboardEvent | InputEvent,
-    isMac: boolean
-): (DeleteSelectionStep | null)[] {
+function getDeleteSteps(rawEvent: InputEvent, isMac: boolean): (DeleteSelectionStep | null)[] {
     const isForward = isDeleteAfter(rawEvent);
     const deleteAllSegmentBeforeStep =
         shouldDeleteAllSegmentsBefore(rawEvent) && !isForward ? deleteAllSegmentBefore : null;
@@ -80,10 +74,7 @@ function getDeleteSteps(
     ];
 }
 
-function shouldDeleteWithContentModel(
-    selection: DOMSelection | null,
-    rawEvent: KeyboardEvent | InputEvent
-) {
+function shouldDeleteWithContentModel(selection: DOMSelection | null, rawEvent: InputEvent) {
     if (!selection) {
         return false; // Nothing to delete
     } else if (selection.type != 'range' || !selection.range.collapsed) {
@@ -94,30 +85,36 @@ function shouldDeleteWithContentModel(
         // When selection is collapsed and is in middle of text node, no need to use Content Model to delete
         return !(
             isNodeOfType(range.startContainer, 'TEXT_NODE') &&
-            isNormalDelete(rawEvent) &&
+            (rawEvent.inputType == 'deleteContentForward' ||
+                rawEvent.inputType == 'deleteContentBackward') &&
             (canDeleteBefore(rawEvent, range) || canDeleteAfter(rawEvent, range))
         );
     }
 }
 
-function isNormalDelete(rawEvent: KeyboardEvent | InputEvent) {
-    if (rawEvent instanceof KeyboardEvent) {
-        return !isModifierKey(rawEvent);
-    } else {
-        return (
-            rawEvent.inputType == 'deleteContentForward' ||
-            rawEvent.inputType == 'deleteContentBackward'
-        );
-    }
-}
-
-function canDeleteBefore(rawEvent: KeyboardEvent | InputEvent, range: Range) {
+function canDeleteBefore(rawEvent: InputEvent, range: Range) {
     return isDeleteBefore(rawEvent) && range.startOffset > 1;
 }
 
-function canDeleteAfter(rawEvent: KeyboardEvent | InputEvent, range: Range) {
+function canDeleteAfter(rawEvent: InputEvent, range: Range) {
     return (
         isDeleteAfter(rawEvent) &&
         range.startOffset < (range.startContainer.nodeValue?.length ?? 0) - 1
+    );
+}
+
+function isDeleteBefore(rawEvent: InputEvent) {
+    return (
+        rawEvent.inputType == 'deleteContentBackward' ||
+        rawEvent.inputType == 'deleteWordBackward' ||
+        rawEvent.inputType == 'deleteSoftLineBackward'
+    );
+}
+
+function isDeleteAfter(rawEvent: InputEvent) {
+    return (
+        rawEvent.inputType == 'deleteContentForward' ||
+        rawEvent.inputType == 'deleteWordForward' ||
+        rawEvent.inputType == 'deleteSoftLineForward'
     );
 }

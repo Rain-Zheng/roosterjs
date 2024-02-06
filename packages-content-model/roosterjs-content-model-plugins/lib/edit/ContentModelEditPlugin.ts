@@ -1,6 +1,7 @@
 import { keyboardDelete } from './keyboardDelete';
 import { keyboardInput } from './keyboardInput';
 import type {
+    EditorInputEvent,
     EditorPlugin,
     IStandaloneEditor,
     KeyDownEvent,
@@ -54,6 +55,9 @@ export class ContentModelEditPlugin implements EditorPlugin {
                 case 'keyDown':
                     this.handleKeyDownEvent(this.editor, event);
                     break;
+                case 'input':
+                    this.handleInputEvent(this.editor, event);
+                    break;
             }
         }
     }
@@ -67,7 +71,9 @@ export class ContentModelEditPlugin implements EditorPlugin {
                 case 'Delete':
                     // Use our API to handle BACKSPACE/DELETE key.
                     // No need to clear cache here since if we rely on browser's behavior, there will be Input event and its handler will reconcile cache
-                    keyboardDelete(editor, rawEvent);
+                    if (!editor.getEnvironment().isAndroid) {
+                        keyboardDelete(editor, rawEvent);
+                    }
                     break;
 
                 case 'Enter':
@@ -75,6 +81,24 @@ export class ContentModelEditPlugin implements EditorPlugin {
                     keyboardInput(editor, rawEvent);
                     break;
             }
+        }
+    }
+
+    private handleInputEvent(editor: IStandaloneEditor, event: EditorInputEvent) {
+        const rawEvent = event.rawEvent;
+        if (!editor.getEnvironment().isAndroid || rawEvent.defaultPrevented) {
+            return;
+        }
+
+        switch (rawEvent.inputType) {
+            case 'deleteContentBackward':
+            case 'deleteWordBackward':
+            case 'deleteSoftLineBackward':
+            case 'deleteContentForward':
+            case 'deleteWordForward':
+            case 'deleteSoftLineForward':
+                keyboardDelete(editor, rawEvent);
+                break;
         }
     }
 }

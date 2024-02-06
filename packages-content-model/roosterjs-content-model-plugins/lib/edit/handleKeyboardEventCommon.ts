@@ -13,7 +13,7 @@ import type {
 export function handleKeyboardEventResult(
     editor: IStandaloneEditor,
     model: ContentModelDocument,
-    rawEvent: KeyboardEvent,
+    rawEvent: KeyboardEvent | InputEvent,
     result: DeleteResult,
     context: FormatWithContentModelContext
 ): boolean {
@@ -47,7 +47,7 @@ export function handleKeyboardEventResult(
             // Trigger an event to let plugins know the content is about to be changed by Content Model keyboard editing.
             // So plugins can do proper handling. e.g. UndoPlugin can decide whether take a snapshot before this change happens.
             editor.triggerEvent('beforeKeyboardEditing', {
-                rawEvent,
+                rawEvent: createCompatKeyboardEvent(rawEvent),
             });
 
             return true;
@@ -57,16 +57,72 @@ export function handleKeyboardEventResult(
 /**
  * @internal
  */
-export function shouldDeleteWord(rawEvent: KeyboardEvent, isMac: boolean) {
-    return (
-        (isMac && rawEvent.altKey && !rawEvent.metaKey) ||
-        (!isMac && rawEvent.ctrlKey && !rawEvent.altKey)
-    );
+export function shouldDeleteWord(rawEvent: KeyboardEvent | InputEvent, isMac: boolean) {
+    if (rawEvent instanceof KeyboardEvent) {
+        return (
+            (isMac && rawEvent.altKey && !rawEvent.metaKey) ||
+            (!isMac && rawEvent.ctrlKey && !rawEvent.altKey)
+        );
+    } else {
+        return (
+            rawEvent.inputType == 'deleteWordBackward' || rawEvent.inputType == 'deleteWordForward'
+        );
+    }
 }
 
 /**
  * @internal
  */
-export function shouldDeleteAllSegmentsBefore(rawEvent: KeyboardEvent) {
-    return rawEvent.metaKey && !rawEvent.altKey;
+export function shouldDeleteAllSegmentsBefore(rawEvent: KeyboardEvent | InputEvent) {
+    if (rawEvent instanceof KeyboardEvent) {
+        return rawEvent.metaKey && !rawEvent.altKey;
+    } else {
+        return (
+            rawEvent.inputType == 'deleteSoftLineBackward' ||
+            rawEvent.inputType == 'deleteSoftLineForward'
+        );
+    }
+}
+
+/**
+ * @internal
+ */
+export function isDeleteBefore(rawEvent: KeyboardEvent | InputEvent) {
+    if (rawEvent instanceof KeyboardEvent) {
+        return rawEvent.key == 'Backspace';
+    } else {
+        return (
+            rawEvent.inputType == 'deleteContentBackward' ||
+            rawEvent.inputType == 'deleteWordBackward' ||
+            rawEvent.inputType == 'deleteSoftLineBackward'
+        );
+    }
+}
+
+/**
+ * @internal
+ */
+export function isDeleteAfter(rawEvent: KeyboardEvent | InputEvent) {
+    if (rawEvent instanceof KeyboardEvent) {
+        return rawEvent.key == 'Delete';
+    } else {
+        return (
+            rawEvent.inputType == 'deleteContentForward' ||
+            rawEvent.inputType == 'deleteWordForward' ||
+            rawEvent.inputType == 'deleteSoftLineForward'
+        );
+    }
+}
+
+function createCompatKeyboardEvent(rawEvent: KeyboardEvent | InputEvent): KeyboardEvent {
+    if (rawEvent instanceof KeyboardEvent) {
+        return rawEvent;
+    } else {
+        // For InputEvent, create a KeyboardEvent to be compatible with the beforeKeyboardEditing event
+        const event = new KeyboardEvent('keydown', {
+            key: isDeleteBefore(rawEvent) ? 'Backspace' : 'Delete',
+            which: isDeleteBefore(rawEvent) ? 8 : 46,
+        });
+        return event;
+    }
 }
