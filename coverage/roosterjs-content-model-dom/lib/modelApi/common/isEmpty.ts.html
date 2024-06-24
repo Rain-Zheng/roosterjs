@@ -168,18 +168,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2318x</span>
+<span class="cline-any cline-yes">2253x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1809x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">161x</span>
+<span class="cline-any cline-yes">1731x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">323x</span>
+<span class="cline-any cline-yes">170x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">346x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -190,13 +190,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">399x</span>
+<span class="cline-any cline-yes">422x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">77x</span>
+<span class="cline-any cline-yes">83x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">309x</span>
+<span class="cline-any cline-yes">326x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,15 +212,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1254x</span>
+<span class="cline-any cline-yes">1240x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">867x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">903x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">368x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">312x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,15 +260,15 @@
 <span class="cline-any cline-yes">100x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type {
-    ContentModelBlock,
-    ContentModelBlockGroup,
-    ContentModelSegment,
+    ReadonlyContentModelBlock,
+    ReadonlyContentModelBlockGroup,
+    ReadonlyContentModelSegment,
 } from 'roosterjs-content-model-types';
 &nbsp;
 /**
  * @internal
  */
-export function isBlockEmpty(block: ContentModelBlock): boolean {
+export function isBlockEmpty(block: ReadonlyContentModelBlock): boolean {
     switch (block.blockType) {
         case 'Paragraph':
             return block.segments.length == 0;
@@ -290,7 +290,7 @@ export function isBlockEmpty(block: ContentModelBlock): boolean {
 /**
  * @internal
  */
-export function isBlockGroupEmpty(group: ContentModelBlockGroup): boolean {
+export function isBlockGroupEmpty(group: ReadonlyContentModelBlockGroup): boolean {
     switch (group.blockGroupType) {
         case 'FormatContainer':
             // Format Container of DIV is a container for style, so we always treat it as not empty
@@ -312,7 +312,7 @@ export function isBlockGroupEmpty(group: ContentModelBlockGroup): boolean {
 /**
  * @internal
  */
-export function isSegmentEmpty(segment: ContentModelSegment): boolean {
+export function isSegmentEmpty(segment: ReadonlyContentModelSegment): boolean {
     switch (segment.segmentType) {
         case 'Text':
             return !segment.text;
@@ -330,7 +330,7 @@ export function isSegmentEmpty(segment: ContentModelSegment): boolean {
  * @returns true if the model is empty.
  */
 export function isEmpty(
-    model: ContentModelBlock | ContentModelBlockGroup | ContentModelSegment
+    model: ReadonlyContentModelBlock | ReadonlyContentModelBlockGroup | ReadonlyContentModelSegment
 ): boolean {
     if (isBlockGroup(model)) {
         return isBlockGroupEmpty(model);
@@ -344,21 +344,21 @@ export function isEmpty(
 }
 &nbsp;
 function isSegment(
-    model: ContentModelBlock | ContentModelBlockGroup | ContentModelSegment
-): model is ContentModelSegment {
-    return typeof (&lt;ContentModelSegment&gt;model).segmentType === 'string';
+    model: ReadonlyContentModelBlock | ReadonlyContentModelBlockGroup | ReadonlyContentModelSegment
+): model is ReadonlyContentModelSegment {
+    return typeof (&lt;ReadonlyContentModelSegment&gt;model).segmentType === 'string';
 }
 &nbsp;
 function isBlock(
-    model: ContentModelBlock | ContentModelBlockGroup | ContentModelSegment
-): model is ContentModelBlock {
-    return typeof (&lt;ContentModelBlock&gt;model).blockType === 'string';
+    model: ReadonlyContentModelBlock | ReadonlyContentModelBlockGroup | ReadonlyContentModelSegment
+): model is ReadonlyContentModelBlock {
+    return typeof (&lt;ReadonlyContentModelBlock&gt;model).blockType === 'string';
 }
 &nbsp;
 function isBlockGroup(
-    model: ContentModelBlock | ContentModelBlockGroup | ContentModelSegment
-): model is ContentModelBlockGroup {
-    return typeof (&lt;ContentModelBlockGroup&gt;model).blockGroupType === 'string';
+    model: ReadonlyContentModelBlock | ReadonlyContentModelBlockGroup | ReadonlyContentModelSegment
+): model is ReadonlyContentModelBlockGroup {
+    return typeof (&lt;ReadonlyContentModelBlockGroup&gt;model).blockGroupType === 'string';
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -367,7 +367,7 @@ function isBlockGroup(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 16 2024 08:47:06 GMT+0000 (Coordinated Universal Time)
+                at Mon Jun 24 2024 10:24:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

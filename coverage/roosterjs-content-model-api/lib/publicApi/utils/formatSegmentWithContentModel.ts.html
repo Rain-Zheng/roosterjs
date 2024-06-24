@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.97% </span>
+                <span class="strong">97.06% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/33</span>
+                <span class='fraction'>33/34</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/25</span>
+                <span class='fraction'>25/26</span>
             </div>
         
             
@@ -148,7 +148,9 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,8 +193,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">170x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">170x</span>
+<span class="cline-any cline-yes">131x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">170x</span>
 <span class="cline-any cline-yes">14x</span>
@@ -242,11 +246,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { adjustWordSelection } from '../../modelApi/selection/adjustWordSelection';
 import { getSelectedSegmentsAndParagraphs } from 'roosterjs-content-model-dom';
 import type {
-    ContentModelDocument,
-    ContentModelParagraph,
-    ContentModelSegment,
     ContentModelSegmentFormat,
     IEditor,
+    ReadonlyContentModelDocument,
+    ShallowMutableContentModelParagraph,
+    ShallowMutableContentModelSegment,
 } from 'roosterjs-content-model-types';
 &nbsp;
 /**
@@ -264,26 +268,28 @@ export function formatSegmentWithContentModel(
     toggleStyleCallback: (
         format: ContentModelSegmentFormat,
         isTuringOn: boolean,
-        segment: ContentModelSegment | null,
-        paragraph: ContentModelParagraph | null
+        segment: ShallowMutableContentModelSegment | null,
+        paragraph: ShallowMutableContentModelParagraph | null
     ) =&gt; void,
     segmentHasStyleCallback?: (
         format: ContentModelSegmentFormat,
-        segment: ContentModelSegment | null,
-        paragraph: ContentModelParagraph | null
+        segment: ShallowMutableContentModelSegment | null,
+        paragraph: ShallowMutableContentModelParagraph | null
     ) =&gt; boolean,
     includingFormatHolder?: boolean,
-    afterFormatCallback?: (model: ContentModelDocument) =&gt; void
+    afterFormatCallback?: (model: ReadonlyContentModelDocument) =&gt; void
 ) {
     editor.formatContentModel(
         (model, context) =&gt; {
             let segmentAndParagraphs = getSelectedSegmentsAndParagraphs(
                 model,
-                !!includingFormatHolder
+                !!includingFormatHolder,
+                false /*includingEntity*/,
+                true /*mutate*/
             );
             let isCollapsedSelection =
-                segmentAndParagraphs.length == 1 &amp;&amp;
-                segmentAndParagraphs[0][0].segmentType == 'SelectionMarker';
+                segmentAndParagraphs.length &gt;= 1 &amp;&amp;
+                segmentAndParagraphs.every(x =&gt; x[0].segmentType == 'SelectionMarker');
 &nbsp;
             if (isCollapsedSelection) {
                 const para = segmentAndParagraphs[0][1];
@@ -301,8 +307,8 @@ export function formatSegmentWithContentModel(
 &nbsp;
             const formatsAndSegments: [
                 ContentModelSegmentFormat,
-                ContentModelSegment | null,
-                ContentModelParagraph | null
+                ShallowMutableContentModelSegment | null,
+                ShallowMutableContentModelParagraph | null
             ][] = segmentAndParagraphs.map(item =&gt; [item[0].format, item[0], item[1]]);
 &nbsp;
             const isTurningOff = segmentHasStyleCallback
@@ -337,7 +343,7 @@ export function formatSegmentWithContentModel(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 16 2024 08:47:06 GMT+0000 (Coordinated Universal Time)
+                at Mon Jun 24 2024 10:24:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

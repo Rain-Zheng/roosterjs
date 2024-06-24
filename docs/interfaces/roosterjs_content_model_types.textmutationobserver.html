@@ -102,20 +102,30 @@
 					<a name="flushmutations" class="tsd-anchor"></a>
 					<h3>flush<wbr>Mutations</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">flush<wbr>Mutations<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">flush<wbr>Mutations<span class="tsd-signature-symbol">(</span>ignoreMutations<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L18">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L20">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Flush all pending mutations that have not be handled in order to ignore them</p>
+									<p>Flush all pending mutations and update cached model if need</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> ignoreMutations: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>When pass true, all mutations will be ignored and do not update content model.
+										This should only be used when we already have a up-to-date content model and will set it as latest cache</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -130,7 +140,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L8">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L8">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -152,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L13">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-types/lib/context/TextMutationObserver.ts#L13">roosterjs-content-model-types/lib/context/TextMutationObserver.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,24 +205,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_adapter.html">roosterjs-<wbr>editor-<wbr>adapter</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_core.html">roosterjs-<wbr>editor-<wbr>core</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_dom.html">roosterjs-<wbr>editor-<wbr>dom</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_plugins.html">roosterjs-<wbr>editor-<wbr>plugins</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
@@ -263,9 +255,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

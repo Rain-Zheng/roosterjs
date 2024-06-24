@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.59% </span>
+                <span class="strong">92.31% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/27</span>
+                <span class='fraction'>24/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.75% </span>
+                <span class="strong">61.11% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/16</span>
+                <span class='fraction'>11/18</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/25</span>
+                <span class='fraction'>22/24</span>
             </div>
         
             
@@ -140,7 +140,13 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,8 +218,6 @@
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,10 +227,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getSelectedCells, updateTableCellMetadata } from 'roosterjs-content-model-dom';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+    getSelectedCells,
+    mutateBlock,
+    updateTableCellMetadata,
+} from 'roosterjs-content-model-dom';
 import type {
-    ContentModelTable,
-    ContentModelTableCell,
+    ShallowMutableContentModelTable,
+    ShallowMutableContentModelTableCell,
     TableCellHorizontalAlignOperation,
     TableCellVerticalAlignOperation,
 } from 'roosterjs-content-model-types';
@@ -253,7 +261,7 @@ const VerticalAlignValueMap: Partial&lt;Record&lt;
  * @internal
  */
 export function alignTableCellHorizontally(
-    table: ContentModelTable,
+    table: ShallowMutableContentModelTable,
     operation: TableCellHorizontalAlignOperation
 ) {
     alignTableCellInternal(table, cell =&gt; {
@@ -265,7 +273,7 @@ export function alignTableCellHorizontally(
  * @internal
  */
 export function alignTableCellVertically(
-    table: ContentModelTable,
+    table: ShallowMutableContentModelTable,
     operation: TableCellVerticalAlignOperation
 ) {
     alignTableCellInternal(table, cell =&gt; {
@@ -280,8 +288,8 @@ export function alignTableCellVertically(
 }
 &nbsp;
 function alignTableCellInternal(
-    table: ContentModelTable,
-    callback: (cell: ContentModelTableCell) =&gt; void
+    table: ShallowMutableContentModelTable,
+    callback: (cell: ShallowMutableContentModelTableCell) =&gt; void
 ) {
     const sel = getSelectedCells(table);
 &nbsp;
@@ -292,13 +300,11 @@ function alignTableCellInternal(
                 const format = cell<span class="branch-0 cbranch-no" title="branch not covered" >?.f</span>ormat;
 &nbsp;
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (format) {
-                    delete cell.cachedElement;
-&nbsp;
-                    callback(cell);
+                    callback(mutateBlock(cell));
 &nbsp;
                     cell.blocks.forEach(<span class="fstat-no" title="function not covered" >block </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >                        if (block.blockType === 'Paragraph') {</span>
-<span class="cstat-no" title="statement not covered" >                            delete block.format.textAlign;</span>
+<span class="cstat-no" title="statement not covered" >                        if (block.blockType === 'Paragraph' &amp;&amp; block.format.textAlign) {</span>
+<span class="cstat-no" title="statement not covered" >                            delete mutateBlock(block).format.textAlign;</span>
                         }
                     });
                 }
@@ -313,7 +319,7 @@ function alignTableCellInternal(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 16 2024 08:47:06 GMT+0000 (Coordinated Universal Time)
+                at Mon Jun 24 2024 10:24:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

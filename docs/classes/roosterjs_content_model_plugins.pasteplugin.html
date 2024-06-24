@@ -121,13 +121,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Paste<wbr>Plugin<span class="tsd-signature-symbol">(</span>allowExcelNoBorderTable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_content_model_plugins.pasteplugin.html" class="tsd-signature-type" data-tsd-kind="Class">PastePlugin</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Paste<wbr>Plugin<span class="tsd-signature-symbol">(</span>allowExcelNoBorderTable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, domToModelForSanitizing<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/roosterjs_content_model_types.domtomodeloptionforsanitizing.html" class="tsd-signature-type" data-tsd-kind="Interface">DomToModelOptionForSanitizing</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;additionalAllowedTags&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;additionalDisallowedTags&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;styleSanitizers&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;attributeSanitizers&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="roosterjs_content_model_plugins.pasteplugin.html" class="tsd-signature-type" data-tsd-kind="Class">PastePlugin</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L29">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L33">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -142,6 +142,9 @@
 									<div class="tsd-comment tsd-typography">
 										<p>Allow table copied from Excel without border</p>
 									</div>
+								</li>
+								<li>
+									<h5>domToModelForSanitizing: <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/roosterjs_content_model_types.domtomodeloptionforsanitizing.html" class="tsd-signature-type" data-tsd-kind="Interface">DomToModelOptionForSanitizing</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;additionalAllowedTags&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;additionalDisallowedTags&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;styleSanitizers&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;attributeSanitizers&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="roosterjs_content_model_plugins.pasteplugin.html" class="tsd-signature-type" data-tsd-kind="Class">PastePlugin</a></h4>
@@ -162,7 +165,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of EditorPlugin.dispose</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L60">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L78">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -187,7 +190,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of EditorPlugin.getName</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L41">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L59">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,7 +213,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of EditorPlugin.initialize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L51">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L69">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,7 +247,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of EditorPlugin.onPluginEvent</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/b230301/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L70">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/Rain-Zheng/roosterjs/blob/dad8910/packages/roosterjs-content-model-plugins/lib/paste/PastePlugin.ts#L88">roosterjs-content-model-plugins/lib/paste/PastePlugin.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,24 +301,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_editor_adapter.html">roosterjs-<wbr>editor-<wbr>adapter</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_api.html">roosterjs-<wbr>editor-<wbr>api</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_core.html">roosterjs-<wbr>editor-<wbr>core</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_dom.html">roosterjs-<wbr>editor-<wbr>dom</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_plugins.html">roosterjs-<wbr>editor-<wbr>plugins</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_types.html">roosterjs-<wbr>editor-<wbr>types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/roosterjs_editor_types_compatible.html">roosterjs-<wbr>editor-<wbr>types-<wbr>compatible</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/roosterjs_react.html">roosterjs-<wbr>react</a>
@@ -373,9 +358,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

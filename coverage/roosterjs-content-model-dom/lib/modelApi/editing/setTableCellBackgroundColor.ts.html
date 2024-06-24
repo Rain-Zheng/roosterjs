@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.47% </span>
+                <span class="strong">74.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/53</span>
+                <span class='fraction'>41/55</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.47% </span>
+                <span class="strong">74.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/53</span>
+                <span class='fraction'>41/55</span>
             </div>
         
             
@@ -196,7 +196,11 @@
 <a name='L137'></a><a href='#L137'>137</a>
 <a name='L138'></a><a href='#L138'>138</a>
 <a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,12 +257,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">129x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -281,6 +285,8 @@
 <span class="cline-any cline-yes">89x</span>
 <span class="cline-any cline-yes">89x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -335,9 +341,10 @@
 <span class="cline-any cline-yes">91x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { parseColor } from '../../formatHandlers/utils/color';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { mutateBlock } from '../common/mutate';
+import { parseColor } from '../../formatHandlers/utils/color';
 import { updateTableCellMetadata } from '../metadata/updateTableCellMetadata';
-import type { ContentModelTableCell } from 'roosterjs-content-model-types';
+import type { ShallowMutableContentModelTableCell } from 'roosterjs-content-model-types';
 &nbsp;
 // Using the HSL (hue, saturation and lightness) representation for RGB color values.
 // If the value of the lightness is less than 20, the color is dark.
@@ -355,7 +362,7 @@ const Black = '#000000';
  * @param applyToSegments @optional When pass true, we will also apply text color from table cell to its child blocks and segments
  */
 export function setTableCellBackgroundColor(
-    cell: ContentModelTableCell,
+    cell: ShallowMutableContentModelTableCell,
     color: string | null | undefined,
     isColorOverride?: boolean,
     applyToSegments?: boolean
@@ -391,13 +398,13 @@ export function setTableCellBackgroundColor(
             removeAdaptiveCellColor(cell);
         }
     }
-&nbsp;
-    delete cell.cachedElement;
 }
 &nbsp;
-function removeAdaptiveCellColor(cell: ContentModelTableCell) {
-    cell.blocks.forEach(block =&gt; {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (block.blockType == 'Paragraph') {
+function removeAdaptiveCellColor(cell: ShallowMutableContentModelTableCell) {
+    cell.blocks.forEach(readonlyBlock =&gt; {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (readonlyBlock.blockType == 'Paragraph') {
+            const block = mutateBlock(readonlyBlock);
+&nbsp;
             <span class="missing-if-branch" title="if path not taken" >I</span>if (
                 block.segmentFormat<span class="branch-1 cbranch-no" title="branch not covered" >?.textColor </span>&amp;&amp;
 <span class="branch-1 cbranch-no" title="branch not covered" >                shouldRemoveColor(block.segmentFormat?.textColor, cell.format.backgroundColor || '')</span>
@@ -416,10 +423,12 @@ function removeAdaptiveCellColor(cell: ContentModelTableCell) {
     });
 }
 &nbsp;
-function setAdaptiveCellColor(cell: ContentModelTableCell) {
+function setAdaptiveCellColor(cell: ShallowMutableContentModelTableCell) {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (cell.format.textColor) {
-        cell.blocks.forEach(<span class="fstat-no" title="function not covered" >block </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >            if (block.blockType == 'Paragraph') {</span>
+        cell.blocks.forEach(<span class="fstat-no" title="function not covered" >readonlyBlock </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >            if (readonlyBlock.blockType == 'Paragraph') {</span>
+                const block = <span class="cstat-no" title="statement not covered" >mutateBlock(readonlyBlock);</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >                if (!block.segmentFormat?.textColor) {</span>
 <span class="cstat-no" title="statement not covered" >                    block.segmentFormat = {</span>
                         ...block.segmentFormat,
@@ -481,7 +490,7 @@ function calculateLightness(color: string) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 16 2024 08:47:06 GMT+0000 (Coordinated Universal Time)
+                at Mon Jun 24 2024 10:24:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.25% </span>
+                <span class="strong">79.01% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>126/159</span>
+                <span class='fraction'>128/162</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.56% </span>
+                <span class="strong">64.2% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>51/79</span>
+                <span class='fraction'>52/81</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.57% </span>
+                <span class="strong">78.34% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>121/154</span>
+                <span class='fraction'>123/157</span>
             </div>
         
             
@@ -507,7 +507,18 @@
 <a name='L448'></a><a href='#L448'>448</a>
 <a name='L449'></a><a href='#L449'>449</a>
 <a name='L450'></a><a href='#L450'>450</a>
-<a name='L451'></a><a href='#L451'>451</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L451'></a><a href='#L451'>451</a>
+<a name='L452'></a><a href='#L452'>452</a>
+<a name='L453'></a><a href='#L453'>453</a>
+<a name='L454'></a><a href='#L454'>454</a>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a>
+<a name='L457'></a><a href='#L457'>457</a>
+<a name='L458'></a><a href='#L458'>458</a>
+<a name='L459'></a><a href='#L459'>459</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -876,6 +887,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -899,6 +916,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-yes">84x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -907,9 +926,6 @@
 <span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -961,16 +977,19 @@
     extractBorderValues,
     getFirstSelectedTable,
     getSelectedCells,
+    mutateBlock,
+    getTableMetadata,
     parseValueWithUnit,
+    setFirstColumnFormatBorders,
     updateTableCellMetadata,
 } from 'roosterjs-content-model-dom';
 import type {
     IEditor,
     Border,
-    ContentModelTable,
-    ContentModelTableCell,
     BorderOperations,
     TableSelectionCoordinates,
+    ReadonlyContentModelTableCell,
+    ReadonlyContentModelTable,
 } from 'roosterjs-content-model-types';
 &nbsp;
 /**
@@ -1325,6 +1344,12 @@ export function applyTableBorderFormat(
                     modifyPerimeter(tableModel, sel, borderFormat, perimeter, isRtl);
                 }
 &nbsp;
+                const tableMeta = getTableMetadata(tableModel);
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (tableMeta) {
+                    // Enforce first column format if necessary
+<span class="cstat-no" title="statement not covered" >                    setFirstColumnFormatBorders(mutateBlock(tableModel).rows, tableMeta);</span>
+                }
+&nbsp;
                 return true;
             } else {
 <span class="cstat-no" title="statement not covered" >                return false;</span>
@@ -1344,22 +1369,21 @@ export function applyTableBorderFormat(
  * @param positions The positions to apply
  */
 function applyBorderFormat(
-    cell: ContentModelTableCell,
+    cell: ReadonlyContentModelTableCell,
     borderFormat: string,
     positions: BorderPositions[]
 ) {
+    const mutableCell = mutateBlock(cell);
+&nbsp;
     positions.forEach(pos =&gt; {
-        cell.format[pos] = borderFormat;
+        mutableCell.format[pos] = borderFormat;
     });
 &nbsp;
-    updateTableCellMetadata(cell, metadata =&gt; {
+    updateTableCellMetadata(mutableCell, metadata =&gt; {
         metadata = metadata || {};
         metadata.borderOverride = true;
         return metadata;
     });
-&nbsp;
-    // Cell was modified, so delete cached element
-    delete cell.cachedElement;
 }
 &nbsp;
 /**
@@ -1372,7 +1396,7 @@ function applyBorderFormat(
  * @param perimeter Where in the perimeter to apply
  */
 function modifyPerimeter(
-    tableModel: ContentModelTable,
+    tableModel: ReadonlyContentModelTable,
     sel: TableSelectionCoordinates,
     borderFormat: string,
     perimeter: Perimeter,
@@ -1414,7 +1438,7 @@ function modifyPerimeter(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 16 2024 08:47:06 GMT+0000 (Coordinated Universal Time)
+                at Mon Jun 24 2024 10:24:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
