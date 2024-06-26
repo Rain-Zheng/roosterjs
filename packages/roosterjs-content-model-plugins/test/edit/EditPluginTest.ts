@@ -123,6 +123,23 @@ describe('EditPlugin', () => {
             expect(keyboardEnterSpy).not.toHaveBeenCalled();
         });
 
+        it('Shift+Tab', () => {
+            plugin = new EditPlugin();
+            const rawEvent = { key: 'Tab', shiftKey: true } as any;
+
+            plugin.initialize(editor);
+
+            plugin.onPluginEvent({
+                eventType: 'keyDown',
+                rawEvent,
+            });
+
+            expect(keyboardTabSpy).toHaveBeenCalledWith(editor, rawEvent);
+            expect(keyboardInputSpy).not.toHaveBeenCalled();
+            expect(keyboardDeleteSpy).not.toHaveBeenCalled();
+            expect(keyboardEnterSpy).not.toHaveBeenCalled();
+        });
+
         it('Enter, normal enter not enabled', () => {
             plugin = new EditPlugin();
             const rawEvent = { which: 13, key: 'Enter' } as any;
