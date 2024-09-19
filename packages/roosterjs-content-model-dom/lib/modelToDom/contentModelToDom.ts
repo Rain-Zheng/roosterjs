@@ -41,6 +41,33 @@ export function contentModelToDom(
     return range;
 }
 
+/**
+ * Create DOM tree fragment from Content Model document asynchronously
+ * Same as contentModelToDom, but returns a promise
+ */
+export async function contentModelToDomAsync(
+    doc: Document,
+    root: Node,
+    model: ContentModelDocument,
+    context: ModelToDomContext
+): Promise<DOMSelection | null> {
+    await context.asyncModelHandlers.blockGroupChildrenAsync(doc, root, model, context);
+
+    const range = extractSelectionRange(doc, context);
+
+    if (model.hasRevertedRangeSelection && range?.type == 'range') {
+        range.isReverted = true;
+    }
+
+    if (context.domIndexer && context.allowCacheElement) {
+        (model as ContentModelDocumentWithPersistedCache).persistCache = true;
+    }
+
+    root.normalize();
+
+    return range;
+}
+
 function extractSelectionRange(doc: Document, context: ModelToDomContext): DOMSelection | null {
     const {
         regularSelection: { start, end },

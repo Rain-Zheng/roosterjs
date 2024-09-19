@@ -255,6 +255,7 @@ export {
 export { TableSelectionCoordinates } from './selection/TableSelectionCoordinates';
 
 export {
+    AsyncContentModelHandlerMap,
     ContentModelHandlerMap,
     DefaultImplicitFormatMap,
     FormatAppliers,
@@ -300,8 +301,10 @@ export {
 } from './context/ModelToDomFormatContext';
 export {
     ContentModelHandler,
+    AsyncContentModelHandler,
     ContentModelSegmentHandler,
     ContentModelBlockHandler,
+    AsyncContentModelBlockHandler,
 } from './context/ContentModelHandler';
 export {
     DomToModelOption,

@@ -1,4 +1,7 @@
-import { defaultContentModelHandlers } from './defaultContentModelHandlers';
+import {
+    defaultAsyncContentModelHandlers,
+    defaultContentModelHandlers,
+} from './defaultContentModelHandlers';
 import { getObjectKeys } from '../../domUtils/getObjectKeys';
 import {
     defaultFormatAppliers,
@@ -86,6 +89,7 @@ export function createModelToDomConfig(
             options.map(x => x?.additionalFormatAppliers)
         ),
         defaultModelHandlers: defaultContentModelHandlers,
+        asyncModelHandlers: defaultAsyncContentModelHandlers,
         defaultFormatAppliers,
         metadataAppliers: Object.assign({}, ...options.map(x => x?.metadataAppliers)),
     };

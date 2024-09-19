@@ -1,8 +1,12 @@
 import type {
+    AsyncContentModelHandler,
+    ContentModelBlock,
     ContentModelBlockGroup,
     ContentModelHandler,
     ModelToDomContext,
 } from 'roosterjs-content-model-types';
+
+const NUMBER_PER_BATCH = 50;
 
 /**
  * @internal
@@ -33,6 +37,70 @@ export const handleBlockGroupChildren: ContentModelHandler<ContentModelBlockGrou
 
             refNode = context.modelHandlers.block(doc, parent, childBlock, context, refNode);
         });
+
+        // Remove all rest node if any since they don't appear in content model
+        while (refNode) {
+            const next = refNode.nextSibling;
+
+            refNode.parentNode?.removeChild(refNode);
+            refNode = next;
+        }
+    } finally {
+        listFormat.nodeStack = nodeStack;
+    }
+};
+
+/**
+ * @internal
+ */
+export const handleBlockGroupChildrenAsync: AsyncContentModelHandler<ContentModelBlockGroup> = async (
+    doc: Document,
+    parent: Node,
+    group: ContentModelBlockGroup,
+    context: ModelToDomContext
+) => {
+    const { listFormat } = context;
+    const nodeStack = listFormat.nodeStack;
+    let refNode: Node | null = parent.firstChild;
+
+    const handleBlockChild = async (childBlock: ContentModelBlock, index: number) => {
+        // When process list, we need a node stack.
+        // When there are two continuous lists, they should share the same stack
+        // so that list items with same type/threadId can be merged into the same list element
+        // In other cases, clear the stack so that two separate lists won't share the same list element
+        if (
+            index == 0 ||
+            childBlock.blockType != 'BlockGroup' ||
+            childBlock.blockGroupType != 'ListItem'
+        ) {
+            listFormat.nodeStack = [];
+        }
+
+        refNode = await context.asyncModelHandlers.blockAsync(
+            doc,
+            parent,
+            childBlock,
+            context,
+            refNode
+        );
+    };
+
+    const blockBatches: ContentModelBlock[][] = [];
+    for (let i = 0; i < group.blocks.length; i += NUMBER_PER_BATCH) {
+        blockBatches.push(group.blocks.slice(i, i + NUMBER_PER_BATCH));
+    }
+
+    try {
+        for (const blockBatch of blockBatches) {
+            await new Promise<void>(resolve => {
+                setTimeout(async () => {
+                    for (let i = 0; i < blockBatch.length; i++) {
+                        await handleBlockChild(blockBatch[i], i);
+                    }
+                    resolve();
+                }, 0);
+            });
+        }
 
         // Remove all rest node if any since they don't appear in content model
         while (refNode) {

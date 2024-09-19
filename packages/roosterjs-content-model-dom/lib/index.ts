@@ -1,5 +1,5 @@
 export { domToContentModel } from './domToModel/domToContentModel';
-export { contentModelToDom } from './modelToDom/contentModelToDom';
+export { contentModelToDom, contentModelToDomAsync } from './modelToDom/contentModelToDom';
 export { contentModelToText } from './modelToText/contentModelToText';
 
 export {

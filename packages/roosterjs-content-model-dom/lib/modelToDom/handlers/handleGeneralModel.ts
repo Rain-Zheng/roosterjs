@@ -4,6 +4,7 @@ import { isNodeOfType } from '../../domUtils/isNodeOfType';
 import { reuseCachedElement } from '../../domUtils/reuseCachedElement';
 import { wrap } from '../../domUtils/wrap';
 import type {
+    AsyncContentModelBlockHandler,
     ContentModelBlockHandler,
     ContentModelGeneralBlock,
     ContentModelGeneralSegment,
@@ -35,6 +36,35 @@ export const handleGeneralBlock: ContentModelBlockHandler<ContentModelGeneralBlo
 
     context.onNodeCreated?.(group, node);
     context.modelHandlers.blockGroupChildren(doc, node, group, context);
+
+    return refNode;
+};
+
+/**
+ * @internal
+ */
+export const handleGeneralBlockAsync: AsyncContentModelBlockHandler<ContentModelGeneralBlock> = async (
+    doc,
+    parent,
+    group,
+    context,
+    refNode
+) => {
+    let node: HTMLElement = group.element;
+
+    if (refNode && node.parentNode == parent) {
+        refNode = reuseCachedElement(parent, node, refNode);
+    } else {
+        node = node.cloneNode() as HTMLElement;
+        group.element = node as HTMLElement;
+
+        applyFormat(node, context.formatAppliers.general, group.format, context);
+
+        parent.insertBefore(node, refNode);
+    }
+
+    context.onNodeCreated?.(group, node);
+    await context.asyncModelHandlers.blockGroupChildrenAsync(doc, node, group, context);
 
     return refNode;
 };

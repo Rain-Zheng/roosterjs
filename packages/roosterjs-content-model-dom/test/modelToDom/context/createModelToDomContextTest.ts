@@ -1,4 +1,7 @@
-import { defaultContentModelHandlers } from '../../../lib/modelToDom/context/defaultContentModelHandlers';
+import {
+    defaultAsyncContentModelHandlers,
+    defaultContentModelHandlers,
+} from '../../../lib/modelToDom/context/defaultContentModelHandlers';
 import { defaultFormatAppliers } from '../../../lib/formatHandlers/defaultFormatHandlers';
 import { EditorContext } from 'roosterjs-content-model-types';
 import {
@@ -25,6 +28,7 @@ describe('createModelToDomContext', () => {
             modelHandlers: defaultContentModelHandlers,
             formatAppliers: buildFormatAppliers(),
             defaultModelHandlers: defaultContentModelHandlers,
+            asyncModelHandlers: defaultAsyncContentModelHandlers,
             defaultFormatAppliers,
             metadataAppliers: {},
         });
@@ -53,6 +57,7 @@ describe('createModelToDomContext', () => {
             modelHandlers: defaultContentModelHandlers,
             formatAppliers: buildFormatAppliers(),
             defaultModelHandlers: defaultContentModelHandlers,
+            asyncModelHandlers: defaultAsyncContentModelHandlers,
             defaultFormatAppliers,
             metadataAppliers: {},
         });
@@ -112,6 +117,7 @@ describe('createModelToDomContext', () => {
             } as any,
             formatAppliers: appliers,
             defaultModelHandlers: defaultContentModelHandlers,
+            asyncModelHandlers: defaultAsyncContentModelHandlers,
             defaultFormatAppliers,
             metadataAppliers: {},
         });

@@ -1,19 +1,32 @@
-import { handleBlock } from '../handlers/handleBlock';
-import { handleBlockGroupChildren } from '../handlers/handleBlockGroupChildren';
+import { handleBlock, handleBlockAsync } from '../handlers/handleBlock';
+import {
+    handleBlockGroupChildren,
+    handleBlockGroupChildrenAsync,
+} from '../handlers/handleBlockGroupChildren';
 import { handleBr } from '../handlers/handleBr';
 import { handleDivider } from '../handlers/handleDivider';
 import { handleEntityBlock, handleEntitySegment } from '../handlers/handleEntity';
-import { handleFormatContainer } from '../handlers/handleFormatContainer';
-import { handleGeneralBlock, handleGeneralSegment } from '../handlers/handleGeneralModel';
+import {
+    handleFormatContainer,
+    handleFormatContainerAsync,
+} from '../handlers/handleFormatContainer';
+import {
+    handleGeneralBlock,
+    handleGeneralBlockAsync,
+    handleGeneralSegment,
+} from '../handlers/handleGeneralModel';
 import { handleImage } from '../handlers/handleImage';
 import { handleList } from '../handlers/handleList';
-import { handleListItem } from '../handlers/handleListItem';
+import { handleListItem, handleListItemAsync } from '../handlers/handleListItem';
 import { handleParagraph } from '../handlers/handleParagraph';
 import { handleSegment } from '../handlers/handleSegment';
 import { handleSegmentDecorator } from '../handlers/handleSegmentDecorator';
 import { handleTable } from '../handlers/handleTable';
 import { handleText } from '../handlers/handleText';
-import type { ContentModelHandlerMap } from 'roosterjs-content-model-types';
+import type {
+    AsyncContentModelHandlerMap,
+    ContentModelHandlerMap,
+} from 'roosterjs-content-model-types';
 
 /**
  * @internal
@@ -36,4 +49,15 @@ export const defaultContentModelHandlers: ContentModelHandlerMap = {
     segmentDecorator: handleSegmentDecorator,
     table: handleTable,
     text: handleText,
+};
+
+/**
+ * @internal
+ */
+export const defaultAsyncContentModelHandlers: AsyncContentModelHandlerMap = {
+    blockAsync: handleBlockAsync,
+    blockGroupChildrenAsync: handleBlockGroupChildrenAsync,
+    generalBlockAsync: handleGeneralBlockAsync,
+    listItemAsync: handleListItemAsync,
+    formatContainerAsync: handleFormatContainerAsync,
 };

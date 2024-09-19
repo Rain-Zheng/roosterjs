@@ -28,6 +28,8 @@ import type {
     ContentModelHandler,
     ContentModelBlockHandler,
     ContentModelSegmentHandler,
+    AsyncContentModelBlockHandler,
+    AsyncContentModelHandler,
 } from './ContentModelHandler';
 
 /**
@@ -172,6 +174,37 @@ export type ContentModelHandlerMap = {
 };
 
 /**
+ * Represents a map from async content model handler name to its handle type
+ * async handlers are used for processing block group children in batches
+ */
+export type AsyncContentModelHandlerMap = {
+    /**
+     * Content Model type for ContentModelBlock
+     */
+    blockAsync: AsyncContentModelBlockHandler<ContentModelBlock>;
+
+    /**
+     * Content Model type for child models of ContentModelBlockGroup
+     */
+    blockGroupChildrenAsync: AsyncContentModelHandler<ContentModelBlockGroup>;
+
+    /**
+     * Content Model type for ContentModelGeneralBlock
+     */
+    generalBlockAsync: AsyncContentModelBlockHandler<ContentModelGeneralBlock>;
+
+    /**
+     * Content Model type for ContentModelListItem
+     */
+    listItemAsync: AsyncContentModelBlockHandler<ContentModelListItem>;
+
+    /**
+     * Content Model type for ContentModelFormatContainer
+     */
+    formatContainerAsync: AsyncContentModelBlockHandler<ContentModelFormatContainer>;
+};
+
+/**
  * Function type to apply metadata value into format
  * @param metadata The metadata object to apply
  * @param format The format object to apply metadata to
@@ -236,6 +269,11 @@ export interface ModelToDomSettings {
      * Map of Content Model handlers
      */
     modelHandlers: ContentModelHandlerMap;
+
+    /**
+     * Map of async Content Model handlers
+     */
+    asyncModelHandlers: AsyncContentModelHandlerMap;
 
     /**
      * Map of format appliers

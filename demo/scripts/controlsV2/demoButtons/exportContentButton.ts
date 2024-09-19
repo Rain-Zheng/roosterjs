@@ -1,4 +1,4 @@
-import { exportContent } from 'roosterjs-content-model-core';
+import { exportContent, exportHTMLContentAsync } from 'roosterjs-content-model-core';
 import { ModelToTextCallbacks } from 'roosterjs-content-model-types';
 import type { RibbonButton } from 'roosterjs-react';
 
@@ -29,16 +29,16 @@ export const exportContentButton: RibbonButton<ExportButtonStringKey> = {
         },
     },
     onClick: (editor, key) => {
-        const win = editor.getDocument().defaultView.open();
-        let html = '';
-
         if (key == 'menuNameExportHTML') {
-            html = exportContent(editor);
+            exportHTMLContentAsync(editor).then(content => {
+                const win = editor.getDocument().defaultView.open();
+                win.document.write(editor.getTrustedHTMLHandler()(content));
+            });
         } else if (key == 'menuNameExportText') {
-            html = `<pre>${exportContent(editor, 'PlainText', callbacks)}</pre>`;
+            const win = editor.getDocument().defaultView.open();
+            const html = `<pre>${exportContent(editor, 'PlainText', callbacks)}</pre>`;
+            win.document.write(editor.getTrustedHTMLHandler()(html));
         }
-
-        win.document.write(editor.getTrustedHTMLHandler()(html));
     },
     commandBarProperties: {
         buttonStyles: {

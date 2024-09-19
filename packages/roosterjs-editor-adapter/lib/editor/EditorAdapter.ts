@@ -20,6 +20,7 @@ import {
     Editor,
     undo,
     paste,
+    exportHTMLContentAsync,
 } from 'roosterjs-content-model-core';
 import {
     ChangeSource,
@@ -366,6 +367,13 @@ export class EditorAdapter extends Editor implements ILegacyEditor {
             case 'PlainTextFast':
                 return exportContent(this, 'PlainTextFast');
         }
+    }
+
+    async getHTMLContentAsync(): Promise<string> {
+        return await exportHTMLContentAsync(
+            this,
+            this.getCore().environment.modelToDomSettings.customized
+        );
     }
 
     /**
