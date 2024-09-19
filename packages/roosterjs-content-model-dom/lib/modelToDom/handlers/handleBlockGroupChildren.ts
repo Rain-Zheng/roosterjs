@@ -36,6 +36,10 @@ export const handleBlockGroupChildren: ContentModelHandler<ContentModelBlockGrou
             }
 
             refNode = context.modelHandlers.block(doc, parent, childBlock, context, refNode);
+
+            if (childBlock.blockType == 'Entity') {
+                context.domIndexer?.onBlockEntity(childBlock, group);
+            }
         });
 
         // Remove all rest node if any since they don't appear in content model
@@ -83,6 +87,10 @@ export const handleBlockGroupChildrenAsync: AsyncContentModelHandler<ContentMode
             context,
             refNode
         );
+
+        if (childBlock.blockType == 'Entity') {
+            context.domIndexer?.onBlockEntity(childBlock, group);
+        }
     };
 
     const blockBatches: ContentModelBlock[][] = [];
