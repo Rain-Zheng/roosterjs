@@ -18,6 +18,8 @@ export default class PendingFormatStatePlugin
     implements PluginWithState<PendingFormatStatePluginState> {
     private editor: IEditor | null = null;
     private state: PendingFormatStatePluginState;
+    private shouldHandleNextInputEvent = false;
+    private androidInputEventHandler: AndroidInputEventHandler | null = null;
 
     /**
      * Construct a new instance of PendingFormatStatePlugin
@@ -45,6 +47,13 @@ export default class PendingFormatStatePlugin
      */
     initialize(editor: IEditor) {
         this.editor = editor;
+        this.androidInputEventHandler = new AndroidInputEventHandler(editor, data => {
+            const isContentInserted = data !== null && data.length > 0;
+            if (this.shouldHandleNextInputEvent && isContentInserted) {
+                this.applyPendingFormat();
+            }
+            this.shouldHandleNextInputEvent = false;
+        });
     }
 
     /**
@@ -53,6 +62,8 @@ export default class PendingFormatStatePlugin
     dispose() {
         this.editor = null;
         this.clear();
+        this.androidInputEventHandler?.dispose();
+        this.androidInputEventHandler = null;
     }
 
     /**
@@ -92,15 +103,7 @@ export default class PendingFormatStatePlugin
                     isCharacterValue(event.rawEvent) &&
                     this.state.pendableFormatSpan
                 ) {
-                    this.state.pendableFormatSpan.removeAttribute('contentEditable');
-                    this.editor.insertNode(this.state.pendableFormatSpan);
-                    this.editor.select(
-                        this.state.pendableFormatSpan,
-                        PositionType.Begin,
-                        this.state.pendableFormatSpan,
-                        PositionType.End
-                    );
-                    this.clear();
+                    this.applyPendingFormat();
                 } else if (
                     (event.eventType == PluginEventType.KeyDown &&
                         event.rawEvent.which >= Keys.PAGEUP &&
@@ -116,9 +119,28 @@ export default class PendingFormatStatePlugin
                     // check if current position is still the same with the cached one (if exist),
                     // and clear cached format if position is changed since it is out-of-date now
                     this.clear();
+                } else if (
+                    event.eventType === PluginEventType.KeyDown &&
+                    event.rawEvent.key === 'Unidentified'
+                ) {
+                    this.shouldHandleNextInputEvent = true;
                 }
 
                 break;
+        }
+    }
+
+    private applyPendingFormat() {
+        if (this.editor && this.state.pendableFormatSpan) {
+            this.state.pendableFormatSpan.removeAttribute('contentEditable');
+            this.editor.insertNode(this.state.pendableFormatSpan);
+            this.editor.select(
+                this.state.pendableFormatSpan,
+                PositionType.Begin,
+                this.state.pendableFormatSpan,
+                PositionType.End
+            );
+            this.clear();
         }
     }
 
