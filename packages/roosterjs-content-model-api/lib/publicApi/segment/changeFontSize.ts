@@ -79,4 +79,5 @@ function getNewFontSize(pt: number, changeBase: 1 | -1, fontSizes: number[]): nu
         }
     }
     return pt;
+    // test
 }
