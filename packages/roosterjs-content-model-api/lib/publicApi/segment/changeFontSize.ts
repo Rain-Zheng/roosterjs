@@ -12,8 +12,8 @@ import type {
  * So that when increase/decrease font size, the font size can match the sequence of your font size picker
  */
 const FONT_SIZES = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72];
-const MIN_FONT_SIZE = 6;
-const MAX_FONT_SIZE = 72;
+const MIN_FONT_SIZE = 1;
+const MAX_FONT_SIZE = 1000;
 
 /**
  * Increase or decrease font size in selection
@@ -23,7 +23,6 @@ const MAX_FONT_SIZE = 72;
  */
 export function changeFontSize(
     editor: IEditor,
-    defaultFontSize: string | undefined,
     change: 'increase' | 'decrease',
     fontSizes: number[] = FONT_SIZES
 ) {
@@ -32,23 +31,19 @@ export function changeFontSize(
     formatSegmentWithContentModel(
         editor,
         'changeFontSize',
-        (format, _, __, paragraph) =>
-            changeFontSizeInternal(defaultFontSize, change, format, paragraph, fontSizes),
+        (format, _, __, paragraph) => changeFontSizeInternal(change, format, paragraph, fontSizes),
         undefined /* segmentHasStyleCallback*/,
         true /*includingFormatHandler*/
     );
 }
 
 function changeFontSizeInternal(
-    defaultFontSize: string | undefined,
     change: 'increase' | 'decrease',
     format: ContentModelSegmentFormat,
     paragraph: ShallowMutableContentModelParagraph | null,
     fontSizes: number[]
 ) {
-    const currentSize = format.fontSize ?? defaultFontSize;
-
-    if (currentSize !== undefined) {
+    if (format.fontSize) {
         const sizeInPt = parseValueWithUnit(format.fontSize, undefined /*element*/, 'pt');
 
         if (sizeInPt > 0) {
@@ -59,12 +54,10 @@ function changeFontSizeInternal(
     }
 }
 
-/* eslint-disable */
 function getNewFontSize(pt: number, changeBase: 1 | -1, fontSizes: number[]): number {
     pt = changeBase == 1 ? Math.floor(pt) : Math.ceil(pt);
-    const first = fontSizes[0] as number;
-    const last = fontSizes[fontSizes.length - 1] as number;
-    if (pt <= first) {
+    const last = fontSizes[fontSizes.length - 1];
+    if (pt <= fontSizes[0]) {
         pt = Math.max(pt + changeBase, MIN_FONT_SIZE);
     } else if (pt > last || (pt == last && changeBase == 1)) {
         pt = pt / 10;
@@ -72,17 +65,15 @@ function getNewFontSize(pt: number, changeBase: 1 | -1, fontSizes: number[]): nu
         pt = Math.min(Math.max((pt + changeBase) * 10, last), MAX_FONT_SIZE);
     } else if (changeBase == 1) {
         for (let i = 0; i < fontSizes.length; i++) {
-            const size = fontSizes[i] as number;
-            if (pt < size) {
-                pt = size;
+            if (pt < fontSizes[i]) {
+                pt = fontSizes[i];
                 break;
             }
         }
     } else {
         for (let i = fontSizes.length - 1; i >= 0; i--) {
-            const size = fontSizes[i] as number;
-            if (pt > size) {
-                pt = size;
+            if (pt > fontSizes[i]) {
+                pt = fontSizes[i];
                 break;
             }
         }
