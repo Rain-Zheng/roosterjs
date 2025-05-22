@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.21% </span>
+                <span class="strong">85.26% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>265/311</span>
+                <span class='fraction'>266/312</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.77% </span>
+                <span class="strong">62.45% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>177/282</span>
+                <span class='fraction'>173/277</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85% </span>
+                <span class="strong">85.05% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>255/300</span>
+                <span class='fraction'>256/301</span>
             </div>
         
             
@@ -837,7 +837,8 @@
 <a name='L778'></a><a href='#L778'>778</a>
 <a name='L779'></a><a href='#L779'>779</a>
 <a name='L780'></a><a href='#L780'>780</a>
-<a name='L781'></a><a href='#L781'>781</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L781'></a><a href='#L781'>781</a>
+<a name='L782'></a><a href='#L782'>782</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -854,6 +855,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1025,9 +1027,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1122,6 +1121,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1539,22 +1541,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
 <span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1622,7 +1624,7 @@ import { canRegenerateImage } from './utils/canRegenerateImage';
 import { checkIfImageWasResized, isASmallImage } from './utils/imageEditUtils';
 import { createImageWrapper } from './utils/createImageWrapper';
 import { Cropper } from './Cropper/cropperContext';
-import { findEditingImage } from './utils/findEditingImage';
+import { EDITING_MARKER, findEditingImage } from './utils/findEditingImage';
 import { getDropAndDragHelpers } from './utils/getDropAndDragHelpers';
 import { getHTMLImageOptions } from './utils/getHTMLImageOptions';
 import { getSelectedImage } from './utils/getSelectedImage';
@@ -1641,6 +1643,7 @@ import {
     isNodeOfType,
     mutateBlock,
     mutateSegment,
+    setImageState,
     unwrap,
 } from 'roosterjs-content-model-dom';
 import type { DragAndDropHelper } from '../pluginUtils/DragAndDrop/DragAndDropHelper';
@@ -1802,9 +1805,6 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
     private removeImageEditing(clonedRoot: HTMLElement) {
         const images = clonedRoot.querySelectorAll('img');
         images.forEach(image =&gt; {
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (image.dataset.isEditing) {
-                delete image.dataset.isEditing;
-            }
             <span class="missing-if-branch" title="else path not taken" >E</span>if (image.dataset.editingInfo) {
                 delete image.dataset.editingInfo;
             }
@@ -1904,8 +1904,11 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
 &nbsp;
     private setContentHandler(editor: IEditor) {
         const selection = editor.getDOMSelection();
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (selection<span class="branch-0 cbranch-no" title="branch not covered" >?.t</span>ype == 'image' &amp;&amp; selection.image.dataset.isEditing &amp;&amp; !this.isEditing) {
-            delete selection.image.dataset.isEditing;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (selection<span class="branch-0 cbranch-no" title="branch not covered" >?.t</span>ype == 'image') {
+            this.cleanInfo();
+            setImageState(selection.image, '');
+            this.isEditing = false;
+            this.isCropMode = false;
         }
     }
 &nbsp;
@@ -1954,7 +1957,7 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (
                     shouldSelectImage ||
                     previousSelectedImage?.image != editingImage?.image ||
-<span class="branch-2 cbranch-no" title="branch not covered" >                    previousSelectedImage?.image.dataset.isEditing </span>||
+<span class="branch-2 cbranch-no" title="branch not covered" >                    previousSelectedImage?.image.format.imageState == EDITING_MARKER </span>||
 <span class="branch-3 cbranch-no" title="branch not covered" >                    isApiOperation</span>
                 ) {
                     const { lastSrc, selectedImage, imageEditInfo, clonedImage } = this;
@@ -1982,7 +1985,7 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
 &nbsp;
                                 image.isSelected = shouldSelectImage;
                                 image.isSelectedAsImageSelection = shouldSelectImage;
-                                delete image.dataset.isEditing;
+                                image.format.imageState = undefined;
 &nbsp;
                                 <span class="missing-if-branch" title="if path not taken" >I</span>if (selection<span class="branch-0 cbranch-no" title="branch not covered" >?.t</span>ype == 'range' &amp;&amp; !selection.range.collapsed) {
                                     const selectedParagraphs = <span class="cstat-no" title="statement not covered" >getSelectedParagraphs(model, true);</span>
@@ -2018,7 +2021,7 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
                         mutateSegment(editingImage.paragraph, editingImage.image, image =&gt; {
                             editingImageModel = image;
                             this.imageEditInfo = updateImageEditInfo(image, selection.image);
-                            image.dataset.isEditing = 'true';
+                            image.format.imageState = 'isEditing';
                         });
 &nbsp;
                         result = true;
@@ -2033,7 +2036,7 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
                         !isApiOperation &amp;&amp;
                         editingImageModel &amp;&amp;
                         editingImageModel == model &amp;&amp;
-                        editingImageModel.dataset.isEditing &amp;&amp;
+                        editingImageModel.format.imageState == EDITING_MARKER &amp;&amp;
                         isNodeOfType(node, 'ELEMENT_NODE') &amp;&amp;
                         isElementOfType(node, 'img')
                     ) {
@@ -2404,7 +2407,7 @@ export class ImageEditPlugin implements ImageEditor, EditorPlugin {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Apr 18 2025 08:48:16 GMT+0000 (Coordinated Universal Time)
+                at Thu May 22 2025 07:52:13 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
