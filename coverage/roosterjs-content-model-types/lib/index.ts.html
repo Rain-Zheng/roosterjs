@@ -550,7 +550,31 @@
 <a name='L491'></a><a href='#L491'>491</a>
 <a name='L492'></a><a href='#L492'>492</a>
 <a name='L493'></a><a href='#L493'>493</a>
-<a name='L494'></a><a href='#L494'>494</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L494'></a><a href='#L494'>494</a>
+<a name='L495'></a><a href='#L495'>495</a>
+<a name='L496'></a><a href='#L496'>496</a>
+<a name='L497'></a><a href='#L497'>497</a>
+<a name='L498'></a><a href='#L498'>498</a>
+<a name='L499'></a><a href='#L499'>499</a>
+<a name='L500'></a><a href='#L500'>500</a>
+<a name='L501'></a><a href='#L501'>501</a>
+<a name='L502'></a><a href='#L502'>502</a>
+<a name='L503'></a><a href='#L503'>503</a>
+<a name='L504'></a><a href='#L504'>504</a>
+<a name='L505'></a><a href='#L505'>505</a>
+<a name='L506'></a><a href='#L506'>506</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1104,6 +1128,8 @@ export { FloatFormat } from './contentModel/format/formatParts/FloatFormat';
 export { EntityInfoFormat } from './contentModel/format/formatParts/EntityInfoFormat';
 export { UndeletableFormat } from './contentModel/format/formatParts/UndeletableFormat';
 export { ImageStateFormat } from './contentModel/format/formatParts/ImageStateFormat';
+export { RoleFormat } from './contentModel/format/formatParts/RoleFormat';
+export { LegacyTableBorderFormat } from './contentModel/format/formatParts/LegacyTableBorderFormat';
 &nbsp;
 export { DatasetFormat, ReadonlyDatasetFormat } from './contentModel/format/metadata/DatasetFormat';
 export { TableMetadataFormat } from './contentModel/format/metadata/TableMetadataFormat';
@@ -1377,7 +1403,7 @@ export {
 export { DarkColorHandler, Colors, ColorTransformFunction } from './context/DarkColorHandler';
 &nbsp;
 export { IEditor } from './editor/IEditor';
-export { ExperimentalFeature } from './editor/ExperimentalFeature';
+export { ExperimentalFeature, GraduatedExperimentalFeature } from './editor/ExperimentalFeature';
 export {
     EditorOptions,
     ColorOptions,
@@ -1473,6 +1499,7 @@ export { DOMEventHandlerFunction, DOMEventRecord } from './parameter/DOMEventRec
 export { EdgeLinkPreview } from './parameter/EdgeLinkPreview';
 export { ClipboardData } from './parameter/ClipboardData';
 export { AnnounceData, KnownAnnounceStrings } from './parameter/AnnounceData';
+export { AnnouncingOption } from './parameter/AnnouncingOption';
 export {
     TrustedHTMLHandler,
     DOMCreator,
@@ -1501,8 +1528,12 @@ export {
 } from './parameter/ModelToTextCallbacks';
 export { ConflictFormatSolution } from './parameter/ConflictFormatSolution';
 export { ParagraphMap, ParagraphIndexer } from './parameter/ParagraphMap';
+export { TextAndHtmlContentForCopy } from './parameter/TextAndHtmlContentForCopy';
+export { PromotedLink } from './parameter/PromotedLink';
+export { BorderKey } from './parameter/BorderKey';
 &nbsp;
 export { BasePluginEvent, BasePluginDomEvent } from './event/BasePluginEvent';
+export { BeforeAddUndoSnapshotEvent } from './event/BeforeAddUndoSnapshotEvent';
 export { BeforeCutCopyEvent } from './event/BeforeCutCopyEvent';
 export { BeforeDisposeEvent } from './event/BeforeDisposeEvent';
 export { BeforeKeyboardEditingEvent } from './event/BeforeKeyboardEditingEvent';
@@ -1522,8 +1553,11 @@ export {
     KeyUpEvent,
     CompositionEndEvent,
 } from './event/KeyboardEvent';
-export { LogicalRootChangedEvent } from './event/LogicalRootChangedEvent';
-export { MouseDownEvent, MouseUpEvent } from './event/MouseEvent';
+export {
+    BeforeLogicalRootChangeEvent,
+    LogicalRootChangedEvent,
+} from './event/LogicalRootChangedEvent';
+export { MouseDownEvent, MouseUpEvent, DoubleClickEvent } from './event/MouseEvent';
 export { PluginEvent } from './event/PluginEvent';
 export {
     PluginEventData,
@@ -1536,6 +1570,8 @@ export { ScrollEvent } from './event/ScrollEvent';
 export { SelectionChangedEvent } from './event/SelectionChangedEvent';
 export { EnterShadowEditEvent, LeaveShadowEditEvent } from './event/ShadowEditEvent';
 export { ZoomChangedEvent } from './event/ZoomChangedEvent';
+export { PointerDownEvent, PointerUpEvent } from './event/PointerEvent';
+export { FindResultChangedEvent } from './event/FindResultChangedEvent';
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -1543,7 +1579,7 @@ export { ZoomChangedEvent } from './event/ZoomChangedEvent';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jun 19 2025 08:00:13 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 19 2026 03:22:45 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
